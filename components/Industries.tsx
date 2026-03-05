@@ -1,34 +1,35 @@
+import { Heart, Home, Wrench, UtensilsCrossed, Scale, ShoppingCart } from 'lucide-react';
 import RevealOnScroll from './ui/RevealOnScroll';
 import SectionLabel from './ui/SectionLabel';
 
 const industries = [
   {
-    icon: '🦷',
+    Icon: Heart,
     name: 'Dental & Medical Clinics',
     description: 'Automated reminders, digital intake, review requests',
   },
   {
-    icon: '🏠',
+    Icon: Home,
     name: 'Real Estate',
     description: 'Lead nurture sequences, CRM sync, listing automation',
   },
   {
-    icon: '🔧',
+    Icon: Wrench,
     name: 'Trades & Contractors',
     description: 'Quote generation, scheduling, job status updates',
   },
   {
-    icon: '🍽',
+    Icon: UtensilsCrossed,
     name: 'Restaurants & Food',
     description: 'Inventory alerts, social content, supplier ordering',
   },
   {
-    icon: '⚖️',
+    Icon: Scale,
     name: 'Law Firms',
     description: 'Client intake, document automation, billing sync',
   },
   {
-    icon: '🛒',
+    Icon: ShoppingCart,
     name: 'E-commerce & Retail',
     description: 'Order processing, AI support, returns handling',
   },
@@ -42,10 +43,10 @@ export default function Industries() {
         <RevealOnScroll className="text-center mb-14">
           <SectionLabel>Who We Help</SectionLabel>
           <h2 className="font-display text-4xl md:text-5xl text-[#F1F5F9] mb-4 tracking-tight">
-            Built for businesses that run on hustle
+            Industries we automate
           </h2>
-          <p className="text-[#94A3B8] max-w-[440px] mx-auto leading-relaxed">
-            We work with small and local businesses across these industries.
+          <p className="text-[#94A3B8] max-w-[440px] mx-auto leading-[1.75]">
+            We build automations for businesses that are too busy doing the work to optimize how it gets done.
           </p>
         </RevealOnScroll>
 
@@ -53,7 +54,7 @@ export default function Industries() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {industries.map((industry, i) => (
             <RevealOnScroll key={industry.name} delay={i * 0.08}>
-              <div className="relative group rounded-2xl border border-[#1E293B] bg-[#111827] p-6 hover:bg-[#1A2335] hover:-translate-y-1 hover:border-[#38BDF8]/20 transition-all duration-300 overflow-hidden">
+              <div className="relative group rounded-2xl border border-[#1E293B] bg-[#111827] p-6 hover:bg-[#1A2335] hover:-translate-y-1 hover:border-[rgba(56,189,248,0.15)] transition-all duration-300 overflow-hidden">
                 {/* Gradient top border — appears on hover */}
                 <div
                   className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -63,7 +64,13 @@ export default function Industries() {
                   }}
                   aria-hidden="true"
                 />
-                <div className="text-2xl mb-3 leading-none">{industry.icon}</div>
+                <div className="mb-3">
+                  <industry.Icon
+                    size={22}
+                    strokeWidth={1.5}
+                    className="text-[#F59E0B]"
+                  />
+                </div>
                 <h3 className="font-body font-semibold text-[#F1F5F9] text-sm mb-1.5 leading-snug">
                   {industry.name}
                 </h3>

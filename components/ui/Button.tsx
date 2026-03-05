@@ -32,7 +32,7 @@ export default function Button({
 
   const variants = {
     primary:
-      'bg-[#38BDF8] text-[#0B0F1A] hover:bg-[#7DD3FC] hover:shadow-[0_0_28px_rgba(56,189,248,0.4)] active:scale-[0.98]',
+      'bg-[#38BDF8] text-[#0B0F1A] hover:bg-[#7DD3FC] hover:shadow-[0_8px_30px_rgba(56,189,248,0.2)] active:scale-[0.98]',
     secondary:
       'border border-[#1E293B] text-[#F1F5F9] hover:border-[#38BDF8]/40 hover:bg-[#1A2335] active:scale-[0.98]',
   };

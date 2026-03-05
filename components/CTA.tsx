@@ -4,7 +4,7 @@ import Button from './ui/Button';
 
 export default function CTA() {
   return (
-    <section id="book" className="py-32 px-6 relative overflow-hidden">
+    <section id="book" className="py-32 px-6 relative overflow-hidden scroll-mt-[100px]">
       {/* Centered glow orb */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
@@ -28,12 +28,10 @@ export default function CTA() {
         <RevealOnScroll>
           <SectionLabel>Get Started</SectionLabel>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#F1F5F9] mb-6 tracking-tight leading-[1.1]">
-            Your free audit is one call away
+            Find out what&apos;s costing you
           </h2>
-          <p className="text-lg text-[#94A3B8] max-w-[520px] mx-auto mb-10 leading-relaxed">
-            30 minutes. No cost. No commitment. You&apos;ll walk away with a
-            clear picture of what&apos;s costing you time and money — and
-            exactly how to fix it.
+          <p className="text-lg text-[#94A3B8] max-w-[520px] mx-auto mb-10 leading-[1.75]">
+            Book a free 30-minute audit. We&apos;ll map your operations, identify the biggest drains on your time and revenue, and show you exactly what to automate first. No commitment.
           </p>
           <Button
             href="https://calendly.com/riccardo-operateai/free-audit"

@@ -30,7 +30,7 @@ const results = [
 
 export default function Results() {
   return (
-    <section id="results" className="py-28 px-6">
+    <section id="results" className="py-28 px-6 scroll-mt-[100px]">
       <div className="max-w-content mx-auto">
         {/* Header */}
         <RevealOnScroll className="text-center mb-14">
@@ -38,9 +38,8 @@ export default function Results() {
           <h2 className="font-display text-4xl md:text-5xl text-[#F1F5F9] mb-4 tracking-tight">
             Results you can actually measure
           </h2>
-          <p className="text-[#94A3B8] max-w-[440px] mx-auto leading-relaxed">
-            These are the kinds of outcomes our automations deliver for small
-            businesses.
+          <p className="text-[#94A3B8] max-w-[440px] mx-auto leading-[1.75]">
+            Measurable impact from the first month.
           </p>
         </RevealOnScroll>
 
@@ -48,7 +47,7 @@ export default function Results() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {results.map((result, i) => (
             <RevealOnScroll key={result.metric} delay={i * 0.1}>
-              <div className="relative group h-full rounded-2xl border border-[#1E293B] bg-[#111827] p-8 md:p-10 hover:bg-[#1A2335] hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+              <div className="relative group h-full rounded-2xl border border-[#1E293B] bg-[#111827] p-8 md:p-10 hover:bg-[#1A2335] hover:-translate-y-1 hover:border-[rgba(56,189,248,0.15)] transition-all duration-300 overflow-hidden">
                 {/* Gradient top border — appears on hover */}
                 <div
                   className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"

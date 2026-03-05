@@ -10,7 +10,7 @@ export default function Footer() {
           <span className="text-[#F1F5F9]">Operate</span>
           <span className="text-[#38BDF8]">AI</span>
         </a>
-        <p className="text-sm text-[#64748B]">Toronto, Ontario · © 2026</p>
+        <p className="text-sm text-[#64748B]">© 2026 OperateAI</p>
       </div>
     </footer>
   );

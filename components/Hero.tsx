@@ -36,14 +36,6 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      {/*
-        Animated SVG — orbital system graphic.
-        The SVG's hub is at (420, 280) in an 800×600 viewBox — offset 20px right
-        and 20px above the geometric center. At 900px rendered width (675px height),
-        that translates to ~22.5px right / 22.5px above. We compensate with a
-        translate offset so the hub lands visually centered behind the headline.
-        Hidden on mobile, visible md and up.
-      */}
       <img
         src="/operateai-hero-animation.svg"
         alt=""
@@ -72,7 +64,7 @@ export default function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
           </span>
-          Now accepting clients in the Greater Toronto Area
+          Now accepting new clients
         </motion.div>
 
         {/* Main headline */}
@@ -81,7 +73,11 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
           transition={transition(0.15)}
-          className="font-display text-5xl sm:text-6xl md:text-7xl text-[#F1F5F9] leading-[1.08] tracking-tight mb-7"
+          className="font-display text-[#F1F5F9] leading-[1.08] mb-7"
+          style={{
+            fontSize: 'clamp(3rem, 6.5vw, 5.2rem)',
+            letterSpacing: '-3px',
+          }}
         >
           Stop doing work a{' '}
           <span className="bg-gradient-to-r from-[#38BDF8] to-[#818CF8] bg-clip-text text-transparent">
@@ -96,11 +92,20 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
           transition={transition(0.3)}
-          className="text-lg md:text-xl text-[#94A3B8] max-w-[620px] mx-auto mb-11 leading-relaxed"
+          className="text-lg md:text-xl text-[#94A3B8] max-w-[620px] mx-auto leading-[1.75] font-light mb-4"
         >
-          We audit your operations, find the bottlenecks costing you time and
-          money, and build custom AI automations to eliminate them. The audit is
-          free.
+          We find the bottlenecks bleeding your business of time and money — then build the automations that eliminate them.
+        </motion.p>
+
+        {/* Free offer — emphasized line */}
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          transition={transition(0.38)}
+          className="text-xl text-[#38BDF8] font-medium mb-11"
+        >
+          The first audit is free.
         </motion.p>
 
         {/* CTAs */}

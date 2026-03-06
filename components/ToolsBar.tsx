@@ -10,11 +10,11 @@ const tools = [
   { name: 'HubSpot',     src: 'https://cdn.simpleicons.org/hubspot'     },
   { name: 'Airtable',    src: 'https://cdn.simpleicons.org/airtable'    },
   { name: 'Notion',      src: 'https://cdn.simpleicons.org/notion'      },
-  { name: 'OpenAI',      src: 'https://cdn.simpleicons.org/openai'      },
+  { name: 'Gmail',       src: 'https://cdn.simpleicons.org/gmail'           },
   { name: 'Calendly',    src: 'https://cdn.simpleicons.org/calendly'    },
   { name: 'Shopify',     src: 'https://cdn.simpleicons.org/shopify'     },
   { name: 'Stripe',      src: 'https://cdn.simpleicons.org/stripe'      },
-  { name: 'Twilio',      src: 'https://cdn.simpleicons.org/twilio'      },
+  { name: 'Microsoft Excel', src: 'https://cdn.simpleicons.org/microsoftexcel' },
   { name: 'QuickBooks',  src: 'https://cdn.simpleicons.org/quickbooks'  },
   { name: 'Mailchimp',   src: 'https://cdn.simpleicons.org/mailchimp'   },
 ];
@@ -43,16 +43,16 @@ export default function ToolsBar() {
           {[...tools, ...tools].map(({ name, src }, i) => (
             <div
               key={`${name}-${i}`}
-              className="logo-item flex-shrink-0 flex flex-col items-center gap-2 px-8"
+              className="logo-item flex-shrink-0 flex flex-col items-center gap-2 px-10"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src}
                 alt={name}
-                height={32}
-                className="h-8 w-auto block"
+                height={40}
+                className="h-10 w-auto block"
               />
-              <span className="text-[10px] text-[#64748B] font-body tracking-wide whitespace-nowrap">
+              <span className="text-sm text-[#64748B] font-body tracking-wide whitespace-nowrap">
                 {name}
               </span>
             </div>

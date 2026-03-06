@@ -14,7 +14,6 @@ const tools = [
   { name: 'Calendly',    src: 'https://cdn.simpleicons.org/calendly'    },
   { name: 'Shopify',     src: 'https://cdn.simpleicons.org/shopify'     },
   { name: 'Stripe',      src: 'https://cdn.simpleicons.org/stripe'      },
-  { name: 'Microsoft Excel', src: 'https://cdn.simpleicons.org/microsoftexcel' },
   { name: 'QuickBooks',  src: 'https://cdn.simpleicons.org/quickbooks'  },
   { name: 'Mailchimp',   src: 'https://cdn.simpleicons.org/mailchimp'   },
 ];

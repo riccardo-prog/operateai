@@ -12,7 +12,7 @@ const results = [
     metric: '12 hrs',
     label: 'Saved per week on admin',
     description:
-      'By connecting tools that currently require manual data transfer — CRM, email, invoicing, scheduling.',
+      'By connecting tools that currently require manual data transfer: CRM, email, invoicing, scheduling.',
   },
   {
     metric: '2x',

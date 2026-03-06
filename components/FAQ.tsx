@@ -10,7 +10,7 @@ const faqs = [
   {
     question: 'What happens during the free audit?',
     answer:
-      'We get on a 30-minute call where you walk us through how your business operates day-to-day. We ask targeted questions to identify where time and money are being lost. After the call, you receive a written report outlining the top bottlenecks and our recommended automations — with estimated ROI for each. The report is yours regardless of whether you move forward.',
+      'We get on a 30-minute call where you walk us through how your business operates day-to-day. We ask targeted questions to identify where time and money are being lost. After the call, you receive a written report outlining the top bottlenecks and our recommended automations, with estimated ROI for each. The report is yours regardless of whether you move forward.',
   },
   {
     question: 'How long does implementation take?',
@@ -20,22 +20,22 @@ const faqs = [
   {
     question: 'Do I need to be technical?',
     answer:
-      'Not at all. We handle everything — from design to build to deployment. You just need to tell us how your business works and what\'s frustrating you. We translate that into working automations.',
+      'Not at all. We handle everything, from design to build to deployment. You just need to tell us how your business works and what\'s frustrating you. We translate that into working automations.',
   },
   {
     question: 'What tools do you work with?',
     answer:
-      'We work with whatever you\'re already using — Google Workspace, HubSpot, Slack, QuickBooks, Calendly, Mailchimp, Shopify, and hundreds more. If your tools can connect, we can automate the workflow between them.',
+      'We work with whatever you\'re already using: Google Workspace, HubSpot, Slack, QuickBooks, Calendly, Mailchimp, Shopify, and hundreds more. If your tools can connect, we can automate the workflow between them.',
   },
   {
     question: 'What does ongoing support include?',
     answer:
-      'We monitor your automations for errors, fix issues proactively, optimize workflows based on real performance data, and build new automations as your needs grow. You get a direct line to us — no ticketing systems, no waiting.',
+      'We monitor your automations for errors, fix issues proactively, optimize workflows based on real performance data, and build new automations as your needs grow. You get a direct line to us. No ticketing systems, no waiting.',
   },
   {
     question: "What if the audit shows I don't need automation?",
     answer:
-      "Then we tell you that. We're not going to sell you something you don't need. The audit is genuinely free with no strings — if your operations are already tight, we'll say so.",
+      "Then we tell you that. We're not going to sell you something you don't need. The audit is genuinely free with no strings. If your operations are already tight, we'll say so.",
   },
 ];
 

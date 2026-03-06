@@ -6,15 +6,15 @@ const steps = [
     number: '01',
     title: 'Free Operations Audit',
     description:
-      'A 30-minute call where we tear apart your workflows and find the 3–5 bottlenecks costing you the most time and money. You walk away with a written report and clear next steps — whether you hire us or not.',
-    tag: 'Free — No Strings',
+      'A 30-minute call where we tear apart your workflows and find the 3–5 bottlenecks costing you the most time and money. You walk away with a written report and clear next steps, whether you hire us or not.',
+    tag: 'Free. No Strings.',
     tagClass: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
   },
   {
     number: '02',
     title: 'Custom Automation Build',
     description:
-      'We architect and build automations tailored to how your business actually runs — connecting your tools, adding AI where it counts, and killing the manual work that\'s slowing you down.',
+      'We architect and build automations tailored to how your business actually runs, connecting your tools, adding AI where it counts, and killing the manual work that\'s slowing you down.',
     tag: 'One-Time Implementation',
     tagClass: 'bg-sky-500/10 text-sky-400 border-sky-500/20',
   },

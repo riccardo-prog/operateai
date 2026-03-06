@@ -94,7 +94,7 @@ export default function Hero() {
           transition={transition(0.3)}
           className="text-lg md:text-xl text-[#94A3B8] max-w-[620px] mx-auto leading-[1.75] font-light mb-4"
         >
-          We find the bottlenecks bleeding your business of time and money — then build the automations that eliminate them.
+          We find the bottlenecks bleeding your business of time and money, then build the automations that eliminate them.
         </motion.p>
 
         {/* Free offer — emphasized line */}
@@ -116,7 +116,7 @@ export default function Hero() {
           transition={transition(0.45)}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button href="#book" size="lg">
+          <Button href="https://calendly.com/riccardo-operateai/free-audit" size="lg" target="_blank" rel="noopener noreferrer">
             Book Your Free Audit →
           </Button>
           <Button href="#how" variant="secondary" size="lg">

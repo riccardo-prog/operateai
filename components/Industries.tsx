@@ -51,10 +51,10 @@ export default function Industries() {
         </RevealOnScroll>
 
         {/* Industry cards */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-fr">
           {industries.map((industry, i) => (
-            <RevealOnScroll key={industry.name} delay={i * 0.08}>
-              <div className="relative group rounded-2xl border border-[#1E293B] bg-[#111827] p-6 hover:bg-[#1A2335] hover:-translate-y-1 hover:border-[rgba(56,189,248,0.15)] transition-all duration-300 overflow-hidden">
+            <RevealOnScroll key={industry.name} delay={i * 0.08} className="h-full">
+              <div className="relative group h-full flex flex-col min-h-[140px] rounded-2xl border border-[#1E293B] bg-[#111827] p-6 hover:bg-[#1A2335] hover:-translate-y-1 hover:border-[rgba(56,189,248,0.15)] transition-all duration-300 overflow-hidden">
                 {/* Gradient top border — appears on hover */}
                 <div
                   className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"

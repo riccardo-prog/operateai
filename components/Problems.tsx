@@ -31,13 +31,13 @@ const problems = [
     Icon: BarChart3,
     title: 'Flying blind on performance',
     description:
-      'You don\'t know which services are most profitable, where clients drop off, or what\'s actually working — because nothing is tracked.',
+      'You don\'t know which services are most profitable, where clients drop off, or what\'s actually working, because nothing is tracked.',
   },
   {
     Icon: DollarSign,
     title: 'Slow processes losing customers',
     description:
-      'Late invoices, delayed quotes, slow follow-ups. Every friction point is a chance for customers to walk away — and they do.',
+      'Late invoices, delayed quotes, slow follow-ups. Every friction point is a chance for customers to walk away, and they do.',
   },
 ];
 
@@ -63,7 +63,7 @@ export default function Problems() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {problems.map((problem, i) => (
                 <RevealOnScroll key={problem.title} delay={i * 0.07} className="h-full">
-                  <div className="h-full flex items-start gap-4 p-6 rounded-2xl border border-[#1E293B] bg-[#0B0F1A] hover:bg-[#1A2335] hover:border-[rgba(56,189,248,0.15)] transition-all duration-300 group">
+                  <div className="h-full flex items-start gap-4 p-6 rounded-2xl border border-[#1E293B] bg-[#0B0F1A] hover:bg-[#1A2335] hover:-translate-y-1 hover:border-[rgba(56,189,248,0.15)] transition-all duration-300 group">
                     <div className="flex-shrink-0 mt-0.5">
                       <problem.Icon
                         size={22}

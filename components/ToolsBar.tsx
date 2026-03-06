@@ -42,16 +42,16 @@ export default function ToolsBar() {
           {[...tools, ...tools].map(({ name, src }, i) => (
             <div
               key={`${name}-${i}`}
-              className="logo-item flex-shrink-0 flex flex-col items-center gap-2 px-10"
+              className="logo-item flex-shrink-0 flex flex-col items-center gap-2 px-12"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src}
                 alt={name}
-                height={40}
-                className="h-10 w-auto block"
+                height={44}
+                className="h-11 w-auto block"
               />
-              <span className="text-sm text-[#64748B] font-body tracking-wide whitespace-nowrap">
+              <span className="text-sm font-medium text-[#64748B] font-body tracking-wide whitespace-nowrap">
                 {name}
               </span>
             </div>

@@ -66,3 +66,12 @@ section[id] {
 .marquee-track:hover {
   animation-play-state: paused;
 }
+
+.logo-item {
+  opacity: 0.35;
+  transition: opacity 0.3s ease;
+}
+
+.logo-item:hover {
+  opacity: 0.7;
+}

@@ -1,52 +1,23 @@
 import RevealOnScroll from './ui/RevealOnScroll';
 import SectionLabel from './ui/SectionLabel';
 
-const CDN = 'https://cdn.simpleicons.org';
-const COLOR = 'F1F5F9';
-
-// Logos available on SimpleIcons CDN
-const logos: { name: string; slug: string | null }[] = [
-  { name: 'Zapier',      slug: 'zapier'      },
-  { name: 'Make',        slug: 'make'        },
-  { name: 'n8n',         slug: 'n8n'         },
-  { name: 'Google',      slug: 'google'      },
-  { name: 'Slack',       slug: 'slack'       },
-  { name: 'HubSpot',     slug: 'hubspot'     },
-  { name: 'Airtable',    slug: 'airtable'    },
-  { name: 'Notion',      slug: 'notion'      },
-  { name: 'OpenAI',      slug: 'openai'      },
-  { name: 'Claude AI',   slug: null          }, // no simple-icons entry — use text fallback
-  { name: 'Calendly',    slug: 'calendly'    },
-  { name: 'QuickBooks',  slug: 'quickbooks'  },
-  { name: 'Mailchimp',   slug: 'mailchimp'   },
-  { name: 'Shopify',     slug: 'shopify'     },
-  { name: 'Stripe',      slug: 'stripe'      },
-  { name: 'Twilio',      slug: 'twilio'      },
+const tools = [
+  { name: 'Zapier',      src: 'https://cdn.simpleicons.org/zapier'      },
+  { name: 'Make',        src: 'https://cdn.simpleicons.org/make'        },
+  { name: 'n8n',         src: 'https://cdn.simpleicons.org/n8n'         },
+  { name: 'Google',      src: 'https://cdn.simpleicons.org/google'      },
+  { name: 'Slack',       src: 'https://cdn.simpleicons.org/slack'       },
+  { name: 'HubSpot',     src: 'https://cdn.simpleicons.org/hubspot'     },
+  { name: 'Airtable',    src: 'https://cdn.simpleicons.org/airtable'    },
+  { name: 'Notion',      src: 'https://cdn.simpleicons.org/notion'      },
+  { name: 'OpenAI',      src: 'https://cdn.simpleicons.org/openai'      },
+  { name: 'Calendly',    src: 'https://cdn.simpleicons.org/calendly'    },
+  { name: 'Shopify',     src: 'https://cdn.simpleicons.org/shopify'     },
+  { name: 'Stripe',      src: 'https://cdn.simpleicons.org/stripe'      },
+  { name: 'Twilio',      src: 'https://cdn.simpleicons.org/twilio'      },
+  { name: 'QuickBooks',  src: 'https://cdn.simpleicons.org/quickbooks'  },
+  { name: 'Mailchimp',   src: 'https://cdn.simpleicons.org/mailchimp'   },
 ];
-
-// Claude AI doesn't have a simple-icons entry — rendered as styled SVG text
-function ClaudeTextLogo() {
-  return (
-    <svg
-      viewBox="0 0 104 28"
-      width="104"
-      height="28"
-      aria-hidden="true"
-      overflow="visible"
-    >
-      <text
-        x="2"
-        y="22"
-        fontFamily="Georgia, 'Times New Roman', serif"
-        fontWeight="400"
-        fontSize="22"
-        fill="currentColor"
-      >
-        Claude
-      </text>
-    </svg>
-  );
-}
 
 export default function ToolsBar() {
   return (
@@ -69,23 +40,21 @@ export default function ToolsBar() {
 
         {/* Marquee track — two copies for seamless loop */}
         <div className="marquee-track">
-          {[...logos, ...logos].map(({ name, slug }, i) => (
+          {[...tools, ...tools].map(({ name, src }, i) => (
             <div
               key={`${name}-${i}`}
-              className="logo-item flex-shrink-0 flex items-center justify-center px-8"
-              title={name}
+              className="logo-item flex-shrink-0 flex flex-col items-center gap-2 px-8"
             >
-              {slug ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={`${CDN}/${slug}/${COLOR}`}
-                  alt={name}
-                  height={28}
-                  className="h-7 w-auto block"
-                />
-              ) : (
-                <ClaudeTextLogo />
-              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={src}
+                alt={name}
+                height={32}
+                className="h-8 w-auto block"
+              />
+              <span className="text-[10px] text-[#64748B] font-body tracking-wide whitespace-nowrap">
+                {name}
+              </span>
             </div>
           ))}
         </div>

@@ -62,8 +62,8 @@ export default function Problems() {
             {/* Problem grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {problems.map((problem, i) => (
-                <RevealOnScroll key={problem.title} delay={i * 0.07}>
-                  <div className="flex gap-4 p-6 rounded-2xl border border-[#1E293B] bg-[#0B0F1A] hover:bg-[#1A2335] hover:border-[rgba(56,189,248,0.15)] transition-all duration-300 group">
+                <RevealOnScroll key={problem.title} delay={i * 0.07} className="h-full">
+                  <div className="h-full flex items-start gap-4 p-6 rounded-2xl border border-[#1E293B] bg-[#0B0F1A] hover:bg-[#1A2335] hover:border-[rgba(56,189,248,0.15)] transition-all duration-300 group">
                     <div className="flex-shrink-0 mt-0.5">
                       <problem.Icon
                         size={22}

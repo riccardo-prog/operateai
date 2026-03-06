@@ -49,3 +49,20 @@ body::after {
 section[id] {
   scroll-margin-top: 80px;
 }
+
+/* Marquee / ticker animation */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}

@@ -116,7 +116,7 @@ export default function Hero() {
           transition={transition(0.45)}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button href="https://calendly.com/riccardo-operateai/free-audit" size="lg" target="_blank" rel="noopener noreferrer">
+          <Button href="https://calendly.com/operateai/free-audit" size="lg" target="_blank" rel="noopener noreferrer">
             Book Your Free Audit →
           </Button>
           <Button href="#how" variant="secondary" size="lg">

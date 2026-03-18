@@ -34,7 +34,7 @@ export default function CTA() {
             Book a free 30-minute audit. We&apos;ll map your operations, identify the biggest drains on your time and revenue, and show you exactly what to automate first. No commitment.
           </p>
           <Button
-            href="https://calendly.com/riccardo-operateai/free-audit"
+            href="https://calendly.com/operateai/free-audit"
             size="lg"
             target="_blank"
             rel="noopener noreferrer"

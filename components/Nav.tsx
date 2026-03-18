@@ -38,13 +38,8 @@ export default function Nav() {
     >
       <div className="max-w-content mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#"
-          className="font-display text-xl tracking-tight flex-shrink-0"
-          aria-label="OperateAI home"
-        >
-          <span className="text-[#F1F5F9]">Operate</span>
-          <span className="text-[#38BDF8]">AI</span>
+        <a href="#" className="flex-shrink-0" aria-label="OperateAI home">
+          <img src="/logo-full.png" alt="OperateAI" className="h-8 w-auto" />
         </a>
 
         {/* Desktop Nav */}

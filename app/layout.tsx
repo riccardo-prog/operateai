@@ -3,6 +3,10 @@ import { dmSerifDisplay, outfit } from '@/lib/fonts';
 import './globals.css';
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/logo-symbol.png',
+    apple: '/logo-symbol.png',
+  },
   title: 'OperateAI — AI Automation for Small Business',
   description:
     'We audit your operations, find the bottlenecks, and build AI-powered automations that save you 10+ hours a week. The audit is free.',

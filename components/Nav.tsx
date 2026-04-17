@@ -25,11 +25,13 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[rgba(11,15,26,0.85)] backdrop-blur-xl border-b border-white/[0.06]'
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled ? 'rgba(11,15,26,0.88)' : 'rgba(11,15,26,0)',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.07)' : '1px solid transparent',
+      }}
     >
       <div className="max-w-content mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
         {/* Wordmark */}

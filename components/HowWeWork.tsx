@@ -33,11 +33,11 @@ export default function HowWeWork() {
     <section
       id="how"
       ref={ref}
-      className="px-6 md:px-8 py-24 md:py-32 border-t border-white/[0.06]"
+      className="px-6 md:px-8 py-16 md:py-24 border-t"
+      style={{ borderColor: 'rgba(255,255,255,0.06)' }}
     >
       <div className="max-w-content mx-auto">
-        {/* Section label */}
-        <p className="font-mono text-xs text-text-muted uppercase tracking-[0.22em] mb-12">
+        <p className="font-mono text-xs text-text-muted uppercase tracking-[0.22em] mb-10">
           How we work
         </p>
 
@@ -45,26 +45,33 @@ export default function HowWeWork() {
           {steps.map((step, i) => (
             <motion.div
               key={step.number}
-              initial={prefersReduced ? {} : { opacity: 0, y: 20 }}
+              initial={prefersReduced ? {} : { opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{
-                duration: 0.5,
-                ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
-                delay: prefersReduced ? 0 : i * 0.12,
+                duration: 0.48,
+                ease: [0.25, 0.1, 0.25, 1] as [number,number,number,number],
+                delay: prefersReduced ? 0 : i * 0.11,
               }}
-              className="rounded-2xl bg-[rgba(17,24,39,0.45)] backdrop-blur-xl border border-white/[0.07] p-8 md:p-9 flex flex-col hover:-translate-y-0.5 hover:border-white/[0.12] transition-all duration-200"
+              className="glass rounded-2xl p-8 flex flex-col"
             >
-              {/* Giant numeral */}
-              <p className="font-display text-6xl md:text-7xl text-white/[0.08] leading-none mb-8 tracking-tight select-none font-semibold">
+              {/* Ghost numeral */}
+              <p
+                className="font-display leading-none select-none mb-7"
+                style={{
+                  fontSize: 'clamp(3.5rem, 7vw, 5.5rem)',
+                  letterSpacing: '-0.04em',
+                  fontWeight: 700,
+                  color: 'rgba(255,255,255,0.07)',
+                }}
+                aria-hidden="true"
+              >
                 {step.number}
               </p>
 
-              {/* Step name */}
               <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
                 {step.name}
               </p>
 
-              {/* Description */}
               <p className="font-body text-sm text-text-secondary leading-relaxed">
                 {step.description}
               </p>
@@ -72,12 +79,11 @@ export default function HowWeWork() {
           ))}
         </div>
 
-        {/* Founding partner note */}
         <motion.p
           initial={prefersReduced ? {} : { opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: prefersReduced ? 0 : 0.5 }}
-          className="font-body text-xs text-text-muted mt-12 max-w-sm leading-relaxed"
+          transition={{ duration: 0.5, delay: prefersReduced ? 0 : 0.45 }}
+          className="font-body text-xs text-text-muted mt-10 max-w-sm leading-relaxed"
         >
           We are currently onboarding three founding partners at a locked rate.
           Standard pricing begins after.

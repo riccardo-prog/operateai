@@ -93,7 +93,7 @@ export default function BookAudit() {
 
         <motion.div {...fade(0.14)} className="mb-6">
           <a
-            href="https://calendly.com/operateai/free-audit"
+            href="https://cal.com/operateai/free-audit"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-body text-lg font-semibold bg-accent text-bg-primary px-10 py-5 rounded-xl min-h-[56px] cursor-pointer transition-shadow duration-300"

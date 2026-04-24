@@ -108,7 +108,7 @@ export default function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
             </span>
             <span className="font-mono text-[11px] text-accent tracking-[0.2em]">
-              powered by Lead Engine
+              OperateAI · powered by Lead Engine
             </span>
           </div>
         </motion.div>

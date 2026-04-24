@@ -60,6 +60,33 @@ export default function RootLayout({
       className={`${dmSerifDisplay.variable} ${outfit.variable} ${jetbrainsMono.variable}`}
     >
       <body className="font-body">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'OperateAI',
+              url: 'https://operateai.ca',
+              logo: 'https://operateai.ca/logo-symbol.png',
+              description:
+                'OperateAI builds Lead Engine, the AI that responds to your leads in seconds, qualifies them, and books appointments.',
+              areaServed: 'CA',
+              sameAs: [],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'OperateAI',
+              url: 'https://operateai.ca',
+            }),
+          }}
+        />
         {children}
         <ChatWidget />
       </body>

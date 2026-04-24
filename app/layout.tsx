@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'OperateAI | AI-Powered Lead Management for Service Businesses',
     description:
-      'Lead Engine responds to your leads in seconds, qualifies them, and books appointments. While you sleep.',
+      'OperateAI responds to your leads in seconds, qualifies them, and books appointments. While you sleep.',
     images: ['/og-image.png'],
   },
   robots: {

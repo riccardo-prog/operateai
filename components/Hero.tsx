@@ -16,6 +16,14 @@ export default function Hero() {
   });
 
   const openChat = () => {
+    // Set a flag in case the widget hasn't hydrated yet — it will read the
+    // flag on mount and open. The event handles the already-mounted case.
+    try {
+      sessionStorage.setItem('ora-pending-open', '1');
+    } catch {
+      // sessionStorage can throw in private mode / disabled storage; the
+      // event-listener path still works in that case.
+    }
     window.dispatchEvent(new CustomEvent('open-ora'));
   };
 
@@ -40,7 +48,9 @@ export default function Hero() {
         }}
       />
 
-      {/* Atmospheric gradients */}
+      {/* Atmospheric gradients. Big filter:blur layers tank mobile GPU,
+          so we use wider radial-gradient falloff to fake the same look
+          without a blur compositing pass. */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }} aria-hidden="true">
         {/* Cyan glow - top left */}
         <div
@@ -50,8 +60,7 @@ export default function Hero() {
             left: '-100px',
             width: '800px',
             height: '800px',
-            background: 'radial-gradient(circle, rgba(56,189,248,0.12) 0%, transparent 50%)',
-            filter: 'blur(80px)',
+            background: 'radial-gradient(circle, rgba(56,189,248,0.12) 0%, rgba(56,189,248,0.05) 30%, transparent 70%)',
           }}
         />
         {/* Violet glow - bottom right */}
@@ -62,8 +71,7 @@ export default function Hero() {
             right: '-200px',
             width: '600px',
             height: '600px',
-            background: 'radial-gradient(circle, rgba(139,92,246,0.10) 0%, transparent 50%)',
-            filter: 'blur(80px)',
+            background: 'radial-gradient(circle, rgba(139,92,246,0.10) 0%, rgba(139,92,246,0.04) 30%, transparent 70%)',
           }}
         />
         {/* Third violet/magenta glow - center right */}
@@ -74,8 +82,7 @@ export default function Hero() {
             right: '10%',
             width: '500px',
             height: '500px',
-            background: 'radial-gradient(circle, rgba(139,92,246,0.07) 0%, rgba(56,189,248,0.03) 40%, transparent 60%)',
-            filter: 'blur(100px)',
+            background: 'radial-gradient(circle, rgba(139,92,246,0.07) 0%, rgba(56,189,248,0.03) 40%, transparent 75%)',
           }}
         />
       </div>
@@ -152,23 +159,21 @@ export default function Hero() {
           </a>
           <button
             onClick={openChat}
-            className="group inline-flex items-center justify-center font-body text-sm font-semibold text-accent px-6 py-3.5 rounded-lg min-h-[44px] cursor-pointer transition-all duration-300 hover:bg-accent/5 relative"
-            style={{ border: 'none' }}
+            className="group inline-flex items-center gap-2.5 font-body text-sm font-semibold text-accent px-7 py-3.5 rounded-lg min-h-[44px] cursor-pointer transition-all duration-200 hover:bg-accent/8"
+            style={{
+              background: 'rgba(56,189,248,0.06)',
+              border: '1px solid rgba(56,189,248,0.35)',
+              boxShadow: 'inset 0 1px 0 rgba(56,189,248,0.08)',
+            }}
           >
-            {/* Shimmer gradient border */}
             <span
-              className="absolute inset-0 rounded-lg transition-all duration-300"
-              style={{
-                padding: '1px',
-                background: 'linear-gradient(135deg, rgba(56,189,248,0.4), rgba(139,92,246,0.2), rgba(56,189,248,0.4))',
-                backgroundSize: '200% 200%',
-                animation: 'gradient-shift 4s ease infinite',
-                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                WebkitMaskComposite: 'xor',
-                maskComposite: 'exclude',
-              }}
+              className="flex h-2 w-2 rounded-full bg-accent flex-shrink-0"
+              aria-hidden="true"
             />
-            <span className="relative">Try Ora. She&apos;s running on Lead Engine</span>
+            <span>Try the live demo</span>
+            <span className="font-mono text-[10px] text-accent/70 tracking-[0.1em] uppercase hidden sm:inline">
+              Ora · running now
+            </span>
           </button>
         </motion.div>
 

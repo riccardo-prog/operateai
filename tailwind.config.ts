@@ -16,7 +16,7 @@ const config: Config = {
         amber: '#F59E0B',
         'text-primary': '#F1F5F9',
         'text-secondary': '#94A3B8',
-        'text-muted': '#64748B',
+        'text-muted': '#8590A6',
         'border-subtle': '#1E293B',
       },
       fontFamily: {

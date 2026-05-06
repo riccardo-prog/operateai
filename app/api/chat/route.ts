@@ -5,6 +5,28 @@ import { ORA_SYSTEM_PROMPT } from '@/lib/ora-system-prompt';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const TRANSCRIPT_MAX_TURNS = 8;
+const TRANSCRIPT_MAX_CHARS = 4000;
+
+function buildTranscript(messages: UIMessage[]): string {
+  const lines: string[] = [];
+  for (const msg of messages.slice(-TRANSCRIPT_MAX_TURNS)) {
+    if (msg.role !== 'user' && msg.role !== 'assistant') continue;
+    const text = (msg.parts || [])
+      .filter((p): p is { type: 'text'; text: string } => p.type === 'text')
+      .map((p) => p.text)
+      .join('')
+      .trim();
+    if (!text) continue;
+    lines.push(`[${msg.role}] ${text}`);
+  }
+  if (lines.length === 0) return '';
+  const transcript = `Captured via Ora chat widget on operateai.ca\n\n${lines.join('\n\n')}`;
+  return transcript.length > TRANSCRIPT_MAX_CHARS
+    ? transcript.slice(0, TRANSCRIPT_MAX_CHARS) + '\n[…truncated]'
+    : transcript;
+}
+
 export async function POST(req: Request) {
   try {
     const { messages }: { messages: UIMessage[] } = await req.json();
@@ -73,9 +95,12 @@ export async function POST(req: Request) {
               };
             }
 
+            const transcript = buildTranscript(messages);
+
             console.log('[Ora] capture_lead called:', {
               ai_intended: { name, email, business },
               validated: { name: name.trim(), email: normalizedEmail, business: business?.trim() || null },
+              transcript_chars: transcript.length,
             });
 
             try {
@@ -88,7 +113,7 @@ export async function POST(req: Request) {
                     name: name.trim(),
                     email: normalizedEmail,
                     business: business?.trim() || '',
-                    message: 'Lead captured via Ora chat widget on operateai.ca',
+                    message: transcript || 'Lead captured via Ora chat widget on operateai.ca',
                   }),
                 }
               );

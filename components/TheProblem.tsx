@@ -42,8 +42,7 @@ export default function TheProblem() {
             transform: 'translateX(-50%)',
             width: '900px',
             height: '600px',
-            background: 'radial-gradient(ellipse 60% 50%, rgba(239,68,68,0.06) 0%, rgba(245,158,11,0.03) 40%, transparent 70%)',
-            filter: 'blur(80px)',
+            background: 'radial-gradient(ellipse 60% 50%, rgba(239,68,68,0.06) 0%, rgba(245,158,11,0.03) 40%, transparent 75%)',
           }}
         />
       </div>
@@ -207,8 +206,8 @@ export default function TheProblem() {
               <div className="flex flex-col gap-4">
                 {[
                   'Leads go cold in minutes, not days',
-                  'Manual follow-up can\'t scale past 10 leads/day',
-                  'Every missed message is revenue your competitor collects',
+                  'You can\'t reply at 9pm and run a business at 9am',
+                  'Every missed message is a deal your competitor closes',
                 ].map((line, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div

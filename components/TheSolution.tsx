@@ -37,9 +37,9 @@ const features = [
     ),
   },
   {
-    title: 'Qualifies & Books Automatically',
+    title: 'Books the Right Ones, Skips the Rest',
     description:
-      'Asks the right questions, scores intent, and books qualified leads directly into your calendar. You only talk to people ready to buy.',
+      'Asks the questions you\'d ask, weeds out the tire-kickers, and drops the serious ones straight into your calendar. You only show up for people ready to move.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8 text-accent" aria-hidden="true">
         <path
@@ -55,7 +55,7 @@ const features = [
   {
     title: 'Never Lets a Lead Go Cold',
     description:
-      'Automatic follow-ups on your schedule. Stale leads get re-engaged. No one falls through the cracks, even when you\'re busy with clients.',
+      'Quiet leads get re-engaged automatically until they book or say no. No one falls through the cracks, even when you\'re back-to-back with clients.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8 text-accent" aria-hidden="true">
         <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />

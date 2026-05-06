@@ -38,9 +38,13 @@ export default function ChatWidget() {
     }
   }, []);
 
-  // Auto-scroll to latest message
+  // Auto-scroll to latest message — `block: 'nearest'` keeps the scroll inside
+  // the chat panel's own scroll container instead of scrolling the page.
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+    messagesEndRef.current?.scrollIntoView({
+      behavior: reduced ? 'auto' : 'smooth',
+      block: 'nearest',
+    });
   }, [messages, reduced]);
 
   // Focus input when opening
@@ -50,10 +54,20 @@ export default function ChatWidget() {
     }
   }, [isOpen]);
 
-  // Listen for open-ora event from Hero CTA
+  // Listen for open-ora event from Hero CTA. Also consume any pending-open
+  // flag set before this component hydrated — covers the race where a user
+  // clicks "Try Ora" before the lazy-loaded widget bundle is ready.
   useEffect(() => {
     const handler = () => setIsOpen(true);
     window.addEventListener('open-ora', handler);
+    try {
+      if (sessionStorage.getItem('ora-pending-open') === '1') {
+        sessionStorage.removeItem('ora-pending-open');
+        setIsOpen(true);
+      }
+    } catch {
+      // sessionStorage unavailable — event listener still covers normal flows
+    }
     return () => window.removeEventListener('open-ora', handler);
   }, []);
 
@@ -76,13 +90,16 @@ export default function ChatWidget() {
       .join('');
   };
 
-  if (isHidden) return null;
+  // Floating bubble hides near the BookAudit section to avoid colliding with
+  // the booking CTA. The open chat panel stays visible regardless — once a
+  // visitor is mid-conversation, scrolling shouldn't make Ora vanish.
+  const showBubble = !isOpen && !isHidden;
 
   return (
     <>
       {/* Floating trigger button */}
       <AnimatePresence>
-        {!isOpen && (
+        {showBubble && (
           <motion.button
             initial={reduced ? {} : { scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

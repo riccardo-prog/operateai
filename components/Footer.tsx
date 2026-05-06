@@ -21,23 +21,15 @@ export default function Footer() {
           </span>
         </div>
 
-        {/* Center - copyright + built with */}
+        {/* Center - copyright */}
         <div className="flex flex-col items-center gap-1">
           <span className="font-mono text-[11px] text-text-muted tracking-[0.04em]">
             &copy; 2026 OperateAI &middot; Based in Ontario, Canada
           </span>
-          <span className="font-mono text-[10px] text-text-muted/50 tracking-[0.04em]">
-            Built with Lead Engine
-          </span>
         </div>
 
-        {/* Privacy link */}
-        <a
-          href="#"
-          className="font-mono text-[11px] text-text-muted tracking-[0.04em] hover:text-text-secondary transition-colors"
-        >
-          Privacy Policy
-        </a>
+        {/* Right side intentionally empty until /privacy exists */}
+        <div className="w-[88px] hidden sm:block" aria-hidden="true" />
       </div>
     </footer>
   );

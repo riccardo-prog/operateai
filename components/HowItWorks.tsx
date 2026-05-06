@@ -17,7 +17,7 @@ const steps = [
   {
     num: '03',
     title: 'We run it with you',
-    body: 'AI handles the volume. You approve messages, close deals. We maintain everything.',
+    body: 'The AI handles the chasing. You approve messages and show up to close. We maintain everything in the background.',
   },
 ];
 

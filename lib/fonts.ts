@@ -9,12 +9,14 @@ export const dmSerifDisplay = DM_Serif_Display({
 
 export const outfit = Outfit({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-outfit',
   display: 'swap',
 });
 
 export const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
+  weight: ['400', '500'],
   variable: '--font-jetbrains-mono',
   display: 'swap',
 });

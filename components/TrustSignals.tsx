@@ -10,10 +10,10 @@ const metrics = [
 ];
 
 const included = [
-  'AI trained on your voice, using samples of how you actually talk to clients',
-  'You approve every outbound message until you trust it fully',
-  'Connects to any platform your leads message you on',
-  'Automatic follow-ups on stale conversations',
+  'Trained on how you actually talk to clients, so the replies sound like you',
+  'You approve every outgoing message until you trust it fully',
+  'Plugs into wherever your leads already message you',
+  'Quiet leads get followed up automatically until they book or say no',
   'No long-term contracts. Founding partner rates available.',
 ];
 

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { dmSerifDisplay, outfit, jetbrainsMono } from '@/lib/fonts';
-import ChatWidget from '@/components/ChatWidget';
+import ChatWidgetLoader from '@/components/ChatWidgetLoader';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -88,7 +88,7 @@ export default function RootLayout({
           }}
         />
         {children}
-        <ChatWidget />
+        <ChatWidgetLoader />
       </body>
     </html>
   );

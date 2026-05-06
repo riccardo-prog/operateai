@@ -2,6 +2,8 @@ import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
 import TheProblem from '@/components/TheProblem';
 import TheSolution from '@/components/TheSolution';
+import Nurture from '@/components/Nurture';
+import Mechanics from '@/components/Mechanics';
 import HowItWorks from '@/components/HowItWorks';
 import TrustSignals from '@/components/TrustSignals';
 import FAQ from '@/components/FAQ';
@@ -16,6 +18,8 @@ export default function Home() {
         <Hero />
         <TheProblem />
         <TheSolution />
+        <Nurture />
+        <Mechanics />
         <HowItWorks />
         <TrustSignals />
         <FAQ />

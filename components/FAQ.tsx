@@ -24,6 +24,14 @@ const faqs = [
     q: 'What channels does it support?',
     a: 'Email (Outlook), Instagram DMs, and Facebook Messenger today. More coming soon.',
   },
+  {
+    q: 'What happens to leads who don\'t book the first time?',
+    a: 'They go into the Nurture System. The AI follows up on a sensible schedule with a different angle each time, pauses the moment they reply, and stops automatically once they book, opt out, or clearly aren\'t a fit. Most reactivated deals come from this — leads you\'d normally write off.',
+  },
+  {
+    q: 'Will it spam my leads?',
+    a: 'No. Send hours, daily caps, and a max-touches limit are enforced before any message goes out. The system pauses on every reply and stops on opt-out, negative replies, or once they book.',
+  },
 ];
 
 function FAQItem({

@@ -232,7 +232,7 @@ export default function TheProblem() {
           >
             <span className="text-text-primary">You don&apos;t have a lead problem. </span>
             <span className="text-text-primary">You have a </span>
-            <span className="text-red-400">speed</span>
+            <span className="text-red-400">system</span>
             <span className="text-text-primary"> problem.</span>
           </p>
           <p className="font-body text-text-muted text-sm mt-3">
@@ -246,7 +246,7 @@ export default function TheProblem() {
             >
               Lead Engine
             </span>
-            {' '}responds in seconds. Every single lead.
+            {' '}is the operations layer behind every channel you run.
           </p>
         </motion.div>
       </div>

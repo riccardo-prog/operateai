@@ -140,7 +140,7 @@ export default function Hero() {
             backgroundClip: 'text',
           }}
         >
-          We replied before you saw the message.
+          Most lead sources are good. They just need the system behind them.
         </motion.h1>
 
         {/* Subhead */}
@@ -149,7 +149,7 @@ export default function Hero() {
           className="font-body text-lg md:text-xl text-text-secondary max-w-2xl mb-9"
           style={{ lineHeight: 1.65 }}
         >
-          Lead Engine is the AI that replies to your leads in seconds and books the ones ready to move. While you sleep.
+          Realtor.ca, paid ads, referrals, DMs. Lead Engine is the operations layer that makes every channel actually convert — replies in your voice, sorts the warm leads from the noise, books fit-ones to your calendar.
         </motion.p>
 
         {/* CTAs */}

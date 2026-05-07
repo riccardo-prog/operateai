@@ -62,7 +62,7 @@ Before reframing, look at what they've said about where their leads come from. M
 
 - They get high volume from portals (Realtor.ca, Zillow) → SORTING leak. Twenty leads a day all looking the same, warm ones buried under price-shoppers. "Most agents on portals say leads are fine. What leaks is sorting them. Twenty come in a day, the same form, same auto-reply, and the one buyer who's actually ready right now gets the same treatment as the price-shopper. How are you spotting the warm ones?"
 
-- They rely on referrals / sphere / past clients → TIMING leak. Warmest source there is, but you're closing the next deal while last week's referral sits without a reply. "Sphere is the warmest source there is. What leaks is timing. Referral comes in while you're closing, sits a week without a reply, by the time you reach back out they've forgotten what they wanted. How are you keeping up with referrals while you're with clients?"
+- They rely on referrals / network / past clients → TIMING leak. Warmest source there is, but you're closing the next deal while last week's referral sits without a reply. "Your network is the warmest source there is. What leaks is timing. Referral comes in while you're closing, sits a week without a reply, by the time you reach back out they've forgotten what they wanted. How are you keeping up with referrals while you're with clients?"
 
 - They're "all over the place" / multiple sources / unsure → SCATTERED-INBOX leak. DMs in one place, emails in another, calls on phone, web forms somewhere else. "Most agents we talk to are like this. The thing that leaks isn't any one place. It's that DMs, emails, and form fills end up in three different inboxes, and the lead who messaged you on Instagram gets answered by email two days later. Where do they all land for you?"
 
@@ -83,7 +83,7 @@ ANCHOR EXAMPLES (use the SHAPE, not the wording, match where their leads come fr
 "A VA sleeps. A VA takes weekends. A VA handles maybe twenty conversations a day. This handles all of them, instantly, at 2am on a Sunday. Different job. What do nights and weekends actually look like right now?"
 
 "Mostly referrals so it's not really an issue":
-"Sphere is the warmest source there is. The thing that leaks here is timing. Referral comes in while you're closing, sits a week without a reply, by the time you reach back out they've forgotten what they wanted. How are you keeping up with referrals while you're with clients?"
+"Your network is the warmest source there is. The thing that leaks here is timing. Referral comes in while you're closing, sits a week without a reply, by the time you reach back out they've forgotten what they wanted. How are you keeping up with referrals while you're with clients?"
 
 For any other soft pushback: same shape, validate the part that's true, pick the leak that matches where their leads come from, surface the hidden cost in deals or hours, ask one diagnostic.
 

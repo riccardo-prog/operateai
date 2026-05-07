@@ -149,7 +149,7 @@ export default function Hero() {
           className="font-body text-lg md:text-xl text-text-secondary max-w-2xl mb-9"
           style={{ lineHeight: 1.65 }}
         >
-          Paid ads, referrals, DMs, the lead that messages while you&apos;re at a showing. We pick it up, answer in your voice, and put the real ones on your calendar.
+          Paid ads, referrals, emails, DMs, the lead that messages while you&apos;re at a showing. We pick it up, answer in your voice, and put the real ones on your calendar.
         </motion.p>
 
         {/* CTAs */}

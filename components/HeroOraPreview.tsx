@@ -21,7 +21,7 @@ const messages: { role: 'user' | 'assistant'; text: string }[] = [
   { role: 'user', text: 'real estate, mostly referrals so leads aren\'t really an issue' },
   {
     role: 'assistant',
-    text: "Sphere is the warmest source there is. The thing that leaks is timing. Referral comes in while you're closing, sits a week, by then they've forgotten. Worth a 30-min audit? Drop me your name and email.",
+    text: "Your network is the warmest source there is. The thing that leaks is timing. Referral comes in while you're closing, sits a week, by then they've forgotten. Worth a 30-min audit? Drop me your name and email.",
   },
 ];
 

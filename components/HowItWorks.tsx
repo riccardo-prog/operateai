@@ -6,7 +6,7 @@ import { motion, useInView, useReducedMotion } from 'framer-motion';
 const steps = [
   {
     num: '01',
-    title: 'We audit your pipeline',
+    title: 'We audit your lead flow',
     body: '30-minute call. We find where leads are leaking.',
   },
   {

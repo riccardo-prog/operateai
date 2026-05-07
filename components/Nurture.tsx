@@ -139,8 +139,8 @@ export default function Nurture() {
             style={{ lineHeight: 1.55 }}
           >
             Deals you would have written off as dead. Hours you would have spent
-            on manual follow-up. A pipeline that refills itself while you&apos;re
-            with clients.
+            on manual follow-up. Quiet leads that come back when they&apos;re ready,
+            so your calendar fills itself while you&apos;re with clients.
           </p>
         </motion.div>
       </div>

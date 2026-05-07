@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
+import HeroOraPreview from './HeroOraPreview';
 
 export default function Hero() {
   const reduced = useReducedMotion();
@@ -87,7 +88,11 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative max-w-content mx-auto w-full" style={{ zIndex: 1 }}>
+      <div
+        className="relative max-w-content mx-auto w-full grid lg:grid-cols-[1fr_minmax(360px,420px)] gap-12 lg:gap-16 items-center"
+        style={{ zIndex: 1 }}
+      >
+        <div className="flex flex-col">
         {/* Pill badge with animated gradient border */}
         <motion.div {...fade(0.05)} className="mb-8">
           <div
@@ -135,9 +140,7 @@ export default function Hero() {
             backgroundClip: 'text',
           }}
         >
-          A lead just messaged you.
-          <br />
-          By the time you see this, we&apos;ve already replied.
+          We replied before you saw the message.
         </motion.h1>
 
         {/* Subhead */}
@@ -146,7 +149,7 @@ export default function Hero() {
           className="font-body text-lg md:text-xl text-text-secondary max-w-2xl mb-9"
           style={{ lineHeight: 1.65 }}
         >
-          OperateAI builds Lead Engine, the AI that responds to your leads in seconds, qualifies them, and books appointments. While you sleep.
+          Lead Engine is the AI that replies to your leads in seconds and books the ones ready to move. While you sleep.
         </motion.p>
 
         {/* CTAs */}
@@ -185,6 +188,12 @@ export default function Hero() {
         >
           30-minute call · No pitch deck · No commitment
         </motion.p>
+        </div>
+
+        {/* Right column on lg+, stacks below on mobile */}
+        <div className="w-full">
+          <HeroOraPreview />
+        </div>
       </div>
 
       {/* Bottom separator line */}

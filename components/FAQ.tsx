@@ -5,6 +5,14 @@ import { motion, useInView, AnimatePresence, useReducedMotion } from 'framer-mot
 
 const faqs = [
   {
+    q: 'Is this just a chatbot?',
+    a: "No. It's the system that handles leads across all the channels you already use, replies in your voice, and books fit-leads on your calendar. Done-for-you, not a tool you have to figure out.",
+  },
+  {
+    q: 'How is this different from a VA?',
+    a: 'A VA sleeps. A VA takes weekends. A VA handles maybe twenty conversations a day. This handles all of them, instantly, at 2am on a Sunday. Different job.',
+  },
+  {
     q: 'Is this a SaaS tool or a done-for-you service?',
     a: 'Done-for-you. We build, configure, and maintain Lead Engine for your business. You approve messages and close deals.',
   },

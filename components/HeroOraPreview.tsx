@@ -13,15 +13,15 @@ import { motion, useReducedMotion } from 'framer-motion';
  * same product, just frozen.
  */
 const messages: { role: 'user' | 'assistant'; text: string }[] = [
-  { role: 'user', text: 'saw your ad. is this just a chatbot?' },
+  { role: 'user', text: 'saw your ad. how does this actually work?' },
   {
     role: 'assistant',
-    text: "Not a chatbot. Lead Engine replies to your inbound leads in your voice and books fit ones to your calendar. What kind of business?",
+    text: "We answer your leads in your voice and book the real ones to your calendar. What kind of business?",
   },
-  { role: 'user', text: 'realtor in chelsea, just me + an assistant' },
+  { role: 'user', text: 'real estate, mostly referrals so leads aren\'t really an issue' },
   {
     role: 'assistant',
-    text: "Got it. The piece most agents lose is the 9pm-Saturday window. Worth a 30-min audit to map yours?",
+    text: "Sphere is the warmest source there is. The thing that leaks is timing. Referral comes in while you're closing, sits a week, by then they've forgotten. Worth a 30-min audit? Drop me your name and email.",
   },
 ];
 

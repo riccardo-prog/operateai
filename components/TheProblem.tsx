@@ -246,7 +246,7 @@ export default function TheProblem() {
             >
               Lead Engine
             </span>
-            {' '}is the operations layer behind every channel you run.
+            {' '}is the system behind every place your leads come in.
           </p>
         </motion.div>
       </div>

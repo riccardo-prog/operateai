@@ -1,4 +1,4 @@
-import { streamText, tool, UIMessage, convertToModelMessages } from 'ai';
+import { streamText, tool, stepCountIs, UIMessage, convertToModelMessages } from 'ai';
 import { anthropic } from '@ai-sdk/anthropic';
 import { z } from 'zod';
 import { ORA_SYSTEM_PROMPT } from '@/lib/ora-system-prompt';
@@ -53,6 +53,11 @@ export async function POST(req: Request) {
       model: anthropic('claude-haiku-4-5-20251001'),
       system: ORA_SYSTEM_PROMPT,
       messages: await convertToModelMessages(messages),
+      // Allow follow-up steps after a tool runs. streamText defaults to
+      // stepCountIs(1), which stops right after capture_lead executes and
+      // leaves the turn with no assistant text — Ora goes silent. This lets
+      // the model read the tool result and actually reply.
+      stopWhen: stepCountIs(5),
       tools: {
         capture_lead: tool({
           description:

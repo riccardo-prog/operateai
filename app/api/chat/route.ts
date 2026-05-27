@@ -91,7 +91,7 @@ export async function POST(req: Request) {
               return {
                 success: true,
                 reason: 'already_captured',
-                message: 'Already got your details — the team will be in touch!',
+                message: 'Already got your details. The team will be in touch.',
               };
             }
 
@@ -119,11 +119,11 @@ export async function POST(req: Request) {
               );
 
               if (!contactRes.ok) {
-                console.error('[Ora] /api/contact failed:', contactRes.status);
+                console.error('[Ora] /api/contact failed:', contactRes.status, { name: name.trim(), email: normalizedEmail });
                 return {
                   success: false,
                   reason: 'server_error',
-                  message: 'Got it — I\'ll make sure the team follows up with you.',
+                  message: 'Got it. I\'ll make sure the team follows up with you.',
                 };
               }
 
@@ -139,7 +139,7 @@ export async function POST(req: Request) {
               return {
                 success: false,
                 reason: 'server_error',
-                message: 'Got it — I\'ll make sure the team follows up with you.',
+                message: 'Got it. I\'ll make sure the team follows up with you.',
               };
             }
           },

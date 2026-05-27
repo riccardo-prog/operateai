@@ -3,10 +3,11 @@ interface SectionLabelProps {
   className?: string;
 }
 
+// Dovetail-flavor eyebrow: every major section opens with one of these.
 export default function SectionLabel({ children, className = '' }: SectionLabelProps) {
   return (
     <span
-      className={`inline-block text-xs font-semibold tracking-[0.18em] uppercase text-[#38BDF8] mb-4 ${className}`}
+      className={`inline-block text-xs font-medium tracking-[0.14em] uppercase text-ink-tertiary mb-4 ${className}`}
     >
       {children}
     </span>

@@ -1,169 +1,132 @@
-'use client';
+import Section from '@/components/ui/Section';
+import SectionHeader from '@/components/ui/SectionHeader';
 
-import { useRef } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+function InboxIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+      <path
+        d="M5 13l1.5-7h11L19 13v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5 13h4l1 2h4l1-2h4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function BoltIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+      <path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function FunnelIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+      <path d="M4 5h16l-6 7v6l-4 2v-8L4 5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function FollowUpIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+      <path d="M19 5v4h-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5 19v-4h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M18.5 9A7 7 0 006 7.5M5.5 15A7 7 0 0018 16.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function CalendarIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+      <rect x="4" y="6" width="16" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M4 10h16M8 4v4M16 4v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function ChartIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+      <path d="M5 20V11M10 20V5M15 20v-7M20 20V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M4 20h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 const steps = [
-  {
-    num: '01',
-    title: 'We audit your lead flow',
-    body: '30-minute call. We find where leads are leaking.',
-  },
-  {
-    num: '02',
-    title: 'We build your system',
-    body: 'Lead Engine configured for your business, channels connected, AI persona matched to your voice. Most builds ship in a few weeks.',
-  },
-  {
-    num: '03',
-    title: 'We run it with you',
-    body: 'The AI handles the chasing. You approve messages and show up to close. We maintain everything in the background.',
-  },
+  { label: 'Lead in', Icon: InboxIcon },
+  { label: 'Instant response', Icon: BoltIcon },
+  { label: 'Qualification', Icon: FunnelIcon },
+  { label: 'Follow-up', Icon: FollowUpIcon },
+  { label: 'Booking or handoff', Icon: CalendarIcon },
+  { label: 'Weekly report', Icon: ChartIcon },
 ];
 
 export default function HowItWorks() {
-  const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px 0px' });
-  const reduced = useReducedMotion();
-
-  const fade = (delay: number) => ({
-    initial: reduced ? {} : { opacity: 0, y: 12 },
-    animate: isInView ? { opacity: 1, y: 0 } : {},
-    transition: {
-      duration: 0.45,
-      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
-      delay: reduced ? 0 : delay,
-    },
-  });
-
   return (
-    <section
-      id="how"
-      ref={ref}
-      className="px-6 md:px-8 py-20 md:py-24 border-t"
-      style={{ borderColor: 'rgba(255,255,255,0.06)' }}
-    >
-      <div className="max-w-content mx-auto">
-        <motion.p
-          {...fade(0)}
-          className="font-mono text-[11px] text-text-muted uppercase tracking-[0.2em] mb-12"
-        >
-          How it works
-        </motion.p>
+    <Section id="how-it-works" tone="muted">
+      <SectionHeader
+        eyebrow="How It Works"
+        title="Speed-to-lead, follow-up, and handoff in one system."
+      >
+        Lead Engine connects to your lead sources, responds while the lead&apos;s
+        intent is still fresh, follows up when they go quiet, qualifies their
+        needs, and routes serious opportunities toward booking with you. AI
+        handles the repetitive first touch and follow-up. You handle the
+        relationship.
+      </SectionHeader>
 
-        {/* Timeline container */}
-        <div className="relative">
-          {/* Horizontal connecting line (desktop only) */}
-          <div
-            className="hidden md:block absolute top-[24px] left-[calc(16.666%+24px)] right-[calc(16.666%+24px)] h-[1px]"
-            style={{
-              background:
-                'linear-gradient(90deg, rgba(56,189,248,0.3) 0%, rgba(56,189,248,0.5) 50%, rgba(56,189,248,0.3) 100%)',
-              backgroundImage:
-                'repeating-linear-gradient(90deg, rgba(56,189,248,0.4) 0px, rgba(56,189,248,0.4) 6px, transparent 6px, transparent 12px)',
-            }}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {steps.map((step, i) => {
-              const isMiddle = i === 1;
-              return (
-                <motion.div
-                  key={step.num}
-                  {...fade(0.07 + i * 0.1)}
-                  className="relative flex flex-col items-center text-center"
-                >
-                  {/* Step number circle */}
-                  <div
-                    className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center shrink-0"
-                    style={{
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1.5px solid rgba(56,189,248,0.5)',
-                      boxShadow: isMiddle
-                        ? '0 0 20px rgba(56,189,248,0.2)'
-                        : '0 0 10px rgba(56,189,248,0.1)',
-                    }}
-                  >
-                    <span className="font-display text-accent text-sm font-medium">
-                      {step.num}
-                    </span>
-                  </div>
-
-                  {/* Vertical connector */}
-                  <div
-                    className="w-[1px] h-6 my-2"
-                    style={{
-                      background:
-                        'linear-gradient(180deg, rgba(56,189,248,0.4) 0%, rgba(56,189,248,0.1) 100%)',
-                    }}
-                  />
-
-                  {/* Card */}
-                  <div
-                    className={`glass rounded-2xl p-8 md:p-10 relative overflow-hidden w-full ${
-                      isMiddle ? 'md:py-12' : ''
-                    }`}
-                    style={{
-                      boxShadow: isMiddle
-                        ? 'inset 0 0 0 1px rgba(56,189,248,0.15), 0 0 40px rgba(56,189,248,0.06)'
-                        : 'inset 0 0 0 1px rgba(255,255,255,0.06)',
-                      transform: isMiddle ? undefined : 'scale(0.97)',
-                    }}
-                  >
-                    {/* Middle card background glow */}
-                    {isMiddle && (
-                      <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                          background:
-                            'radial-gradient(ellipse at center, rgba(56,189,248,0.04) 0%, transparent 70%)',
-                        }}
-                      />
-                    )}
-
-                    <h3
-                      className="font-body font-semibold text-text-primary text-lg mb-3 relative z-10"
-                      style={{ lineHeight: 1.3 }}
-                    >
-                      {step.title}
-                    </h3>
-                    <p
-                      className="font-body text-text-secondary text-sm relative z-10"
-                      style={{ lineHeight: 1.7 }}
-                    >
-                      {step.body}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <motion.div {...fade(0.5)} className="mt-14 text-center">
-          <a
-            href="#book"
-            className="inline-flex items-center gap-2 font-body text-accent hover:text-white transition-colors duration-200 text-sm font-medium group"
-          >
-            Ready to start?
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
-              aria-hidden="true"
-            >
-              <path
-                d="M5 12h14M12 5l7 7-7 7"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
-        </motion.div>
+      {/* Desktop: horizontal flow with the sanctioned cyan to purple line */}
+      <div className="hidden lg:block relative mt-16">
+        <div
+          className="absolute top-7 left-[calc(100%/12)] right-[calc(100%/12)] h-px bg-gradient-to-r from-accent-from to-accent-to"
+          aria-hidden="true"
+        />
+        <ol className="grid grid-cols-6">
+          {steps.map(({ label, Icon }) => (
+            <li key={label} className="flex flex-col items-center text-center px-2">
+              <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-bg-elevated border border-border-soft text-ink-secondary">
+                <Icon />
+              </span>
+              <span className="mt-4 text-sm font-medium text-ink-primary">{label}</span>
+            </li>
+          ))}
+        </ol>
       </div>
-    </section>
+
+      {/* Mobile + tablet: vertical flow (no horizontal scroll) */}
+      <ol className="lg:hidden relative mt-12">
+        <div
+          className="absolute left-7 top-7 bottom-7 w-px bg-gradient-to-b from-accent-from to-accent-to"
+          aria-hidden="true"
+        />
+        {steps.map(({ label, Icon }) => (
+          <li key={label} className="relative flex items-center gap-4 py-3">
+            <span className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-bg-elevated border border-border-soft text-ink-secondary">
+              <Icon />
+            </span>
+            <span className="text-base font-medium text-ink-primary">{label}</span>
+          </li>
+        ))}
+      </ol>
+    </Section>
   );
 }

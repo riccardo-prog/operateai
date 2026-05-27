@@ -8,14 +8,14 @@ export const metadata: Metadata = {
     icon: '/logo-symbol.png',
     apple: '/logo-symbol.png',
   },
-  title: 'OperateAI | AI-Powered Lead Management for Service Businesses',
+  title: 'Lead Engine | Stop losing real estate leads after they inquire',
   description:
-    'OperateAI builds Lead Engine, the AI that responds to your leads in seconds, qualifies them, and books appointments. While you sleep.',
+    'Lead Engine responds to new leads in seconds, follows up automatically, and helps realtors stop losing opportunities to slow replies, missed messages, and inconsistent follow-up.',
   metadataBase: new URL('https://operateai.ca'),
   openGraph: {
-    title: 'OperateAI | AI-Powered Lead Management for Service Businesses',
+    title: 'Lead Engine | Stop losing real estate leads after they inquire',
     description:
-      'OperateAI builds Lead Engine, the AI that responds to your leads in seconds, qualifies them, and books appointments. While you sleep.',
+      'Lead Engine responds to new leads in seconds, follows up automatically, and helps realtors stop losing opportunities to slow replies, missed messages, and inconsistent follow-up.',
     url: 'https://operateai.ca',
     siteName: 'OperateAI',
     images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'OperateAI | AI-Powered Lead Management',
+        alt: 'Lead Engine by OperateAI',
       },
     ],
     locale: 'en_US',
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OperateAI | AI-Powered Lead Management for Service Businesses',
+    title: 'Lead Engine | Stop losing real estate leads after they inquire',
     description:
-      'OperateAI responds to your leads in seconds, qualifies them, and books appointments. While you sleep.',
+      'Lead Engine responds to new leads in seconds, follows up automatically, and helps realtors stop losing opportunities to slow replies, missed messages, and inconsistent follow-up.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -70,7 +70,7 @@ export default function RootLayout({
               url: 'https://operateai.ca',
               logo: 'https://operateai.ca/logo-symbol.png',
               description:
-                'OperateAI builds Lead Engine, the AI that responds to your leads in seconds, qualifies them, and books appointments.',
+                'OperateAI builds Lead Engine, the AI lead response and follow-up system for realtors.',
               areaServed: 'CA',
               sameAs: [],
             }),

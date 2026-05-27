@@ -18,6 +18,18 @@ const config: Config = {
         'text-secondary': '#94A3B8',
         'text-muted': '#8590A6',
         'border-subtle': '#1E293B',
+        // ── Dovetail-flavor tokens (additive, light theme) ──
+        'bg-canvas': '#FAFAFA',
+        'bg-elevated': '#FFFFFF',
+        'bg-muted': '#F4F4F5',
+        'ink-primary': '#0A0A0B',
+        'ink-secondary': '#52525B',
+        'ink-tertiary': '#A1A1AA',
+        'border-soft': 'rgba(10, 10, 11, 0.08)',
+        'accent-from': '#01C4CC',
+        'accent-to': '#7436E5',
+        'accent-soft-from': 'rgba(1, 196, 204, 0.12)',
+        'accent-soft-to': 'rgba(116, 54, 229, 0.12)',
       },
       fontFamily: {
         display: ['var(--font-dm-serif)', 'Georgia', 'serif'],

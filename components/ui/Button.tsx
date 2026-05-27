@@ -9,6 +9,7 @@ interface ButtonProps {
   className?: string;
   target?: string;
   rel?: string;
+  type?: 'button' | 'submit';
 }
 
 export default function Button({
@@ -20,9 +21,11 @@ export default function Button({
   className = '',
   target,
   rel,
+  type = 'button',
 }: ButtonProps) {
+  // Dovetail-flavor pills: rounded-full, font-medium, calm (no glow shadows).
   const base =
-    'inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap';
+    'inline-flex items-center justify-center rounded-full font-medium transition-colors duration-200 cursor-pointer whitespace-nowrap';
 
   const sizes = {
     sm: 'px-4 py-2 text-sm',
@@ -31,24 +34,23 @@ export default function Button({
   };
 
   const variants = {
-    primary:
-      'bg-[#38BDF8] text-[#0B0F1A] hover:bg-[#7DD3FC] hover:shadow-[0_8px_30px_rgba(56,189,248,0.2)] active:scale-[0.98]',
+    primary: 'bg-ink-primary text-white hover:opacity-90',
     secondary:
-      'border border-[#1E293B] text-[#F1F5F9] hover:border-[#38BDF8]/40 hover:bg-[#1A2335] active:scale-[0.98]',
+      'bg-transparent border border-border-soft text-ink-primary hover:bg-bg-muted',
   };
 
   const classes = `${base} ${sizes[size]} ${variants[variant]} ${className}`;
 
   if (href) {
     return (
-      <a href={href} className={classes} target={target} rel={rel}>
+      <a href={href} onClick={onClick} className={classes} target={target} rel={rel}>
         {children}
       </a>
     );
   }
 
   return (
-    <button onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} className={classes}>
       {children}
     </button>
   );

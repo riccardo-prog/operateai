@@ -1,44 +1,57 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { motion, useInView, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { useState } from 'react';
+import Section from '@/components/ui/Section';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 const faqs = [
   {
-    q: 'Is this just a chatbot?',
-    a: "No. It's the system that handles leads across all the channels you already use, replies in your voice, and books fit-leads on your calendar. Done-for-you, not a tool you have to figure out.",
+    q: 'Is this lead generation?',
+    a: 'No. Lead Engine does not create leads. It helps you respond to, follow up with, and convert more of the leads you already generate.',
   },
   {
-    q: 'How is this different from a VA?',
-    a: 'A VA sleeps. A VA takes weekends. A VA handles maybe twenty conversations a day. This handles all of them, instantly, at 2am on a Sunday. Different job.',
+    q: 'Is Lead Engine a CRM?',
+    a: 'No. Lead Engine is not meant to replace your CRM. It focuses on the response, follow-up, qualification, and handoff window after a new inquiry comes in.',
   },
   {
-    q: 'Is this a SaaS tool or a done-for-you service?',
-    a: 'Done-for-you. We build, configure, and maintain Lead Engine for your business. You approve messages and close deals.',
+    q: 'How is this different from my CRM?',
+    a: 'A CRM helps store and organize contacts. Lead Engine focuses on what happens immediately after a lead inquires.',
   },
   {
-    q: 'How long does setup take?',
-    a: 'Most builds ship in a few weeks. We start with a 30-minute audit call, then handle everything.',
+    q: 'How is this different from a chatbot?',
+    a: 'Generic chat tools usually answer questions. Lead Engine is built around a realtor-specific response and follow-up workflow that qualifies intent and routes serious opportunities toward handoff or booking.',
   },
   {
-    q: 'What does it cost?',
-    a: 'Monthly plan based on your channels and volume. First clients get founding partner rates. We\'ll quote you on the audit call.',
+    q: 'How is this different from lead generation tools?',
+    a: 'Lead gen tools create more inquiries. Lead Engine helps you respond to and follow up with the inquiries you already receive.',
   },
   {
-    q: 'Can I control what the AI says?',
-    a: 'Yes. You set the AI\'s persona: name, tone, voice, things to always say and never say. And you can approve every message before it\'s sent.',
+    q: 'Will this replace me as the realtor?',
+    a: 'No. Lead Engine handles repetitive first-touch response and follow-up. You step in when the lead is ready for a real conversation.',
   },
   {
-    q: 'What channels does it support?',
-    a: 'Email (Outlook), Instagram DMs, and Facebook Messenger today. More coming soon.',
+    q: 'Will the AI sound robotic?',
+    a: 'No. The system is customized around your tone, lead source, and conversation flow.',
   },
   {
-    q: 'What happens to leads who don\'t book the first time?',
-    a: 'They go into the Nurture System. The AI follows up on a sensible schedule with a different angle each time, pauses the moment they reply, and stops automatically once they book, opt out, or clearly aren\'t a fit. Most reactivated deals come from this — leads you\'d normally write off.',
+    q: 'Do I need to change CRMs?',
+    a: 'Not necessarily. Lead Engine works around your existing lead flow where possible.',
   },
   {
-    q: 'Will it spam my leads?',
-    a: 'No. Send hours, daily caps, and a max-touches limit are enforced before any message goes out. The system pauses on every reply and stops on opt-out, negative replies, or once they book.',
+    q: 'What happens when a lead is ready to talk?',
+    a: 'The system routes the lead toward booking or direct handoff depending on your setup.',
+  },
+  {
+    q: 'Does this guarantee more deals?',
+    a: 'No system can guarantee closed deals. Lead Engine improves the response and follow-up process so fewer opportunities are lost before you get a chance to speak with them.',
+  },
+  {
+    q: 'Who is this for?',
+    a: 'Realtors, teams, or brokerages that already receive inbound leads from ads, forms, DMs, or other sources and want a better system for handling them.',
+  },
+  {
+    q: 'What is Ora?',
+    a: 'Ora is the inbound assistant on this website. Ora helps visitors ask questions, share lead flow details, and request a Lead Flow Audit.',
   },
 ];
 
@@ -53,112 +66,55 @@ function FAQItem({
   isOpen: boolean;
   onToggle: () => void;
 }) {
-  const reduced = useReducedMotion();
-
   return (
-    <div
-      className="border-b"
-      style={{ borderColor: 'rgba(255,255,255,0.07)' }}
-    >
+    <div className="border-b border-border-soft">
       <button
         onClick={onToggle}
         className="w-full text-left py-5 flex items-center justify-between gap-6 cursor-pointer group"
         aria-expanded={isOpen}
       >
-        <span
-          className="font-body font-semibold text-text-primary text-sm md:text-base group-hover:text-white transition-colors duration-200"
-          style={{ lineHeight: 1.45 }}
-        >
-          {q}
-        </span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: reduced ? 0 : 0.2, ease: 'easeOut' }}
-          className="flex-shrink-0"
+        <span className="text-sm md:text-base font-medium text-ink-primary">{q}</span>
+        <svg
+          viewBox="0 0 16 16"
+          fill="none"
+          className={`w-4 h-4 shrink-0 text-ink-tertiary transition-transform duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
           aria-hidden="true"
         >
-          <svg
-            viewBox="0 0 16 16"
-            fill="none"
-            className="w-4 h-4 text-text-muted"
-          >
-            <path
-              d="M4 6l4 4 4-4"
-              stroke="currentColor"
-              strokeWidth="1.75"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </motion.div>
+          <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
       </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{
-              duration: reduced ? 0 : 0.2,
-              ease: 'easeOut',
-            }}
-            className="overflow-hidden"
-          >
-            <p
-              className="font-body text-sm text-text-secondary pb-5 pr-8"
-              style={{ lineHeight: 1.7 }}
-            >
-              {a}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className={`grid transition-all duration-200 ease-out ${
+          isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="text-ink-secondary leading-relaxed pb-5 pr-8">{a}</p>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px 0px' });
-  const reduced = useReducedMotion();
 
   return (
-    <section
-      id="faq"
-      ref={ref}
-      className="px-6 md:px-8 py-20 md:py-24 border-t"
-      style={{ borderColor: 'rgba(255,255,255,0.06)' }}
-    >
-      <div className="max-w-content mx-auto">
-        <motion.p
-          initial={reduced ? {} : { opacity: 0, y: 8 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="font-mono text-[11px] text-text-muted uppercase tracking-[0.2em] mb-12"
-        >
-          Common questions
-        </motion.p>
-
-        <motion.div
-          initial={reduced ? {} : { opacity: 0, y: 12 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1], delay: reduced ? 0 : 0.08 }}
-          className="border-t"
-          style={{ borderColor: 'rgba(255,255,255,0.07)' }}
-        >
-          {faqs.map((faq, i) => (
-            <FAQItem
-              key={faq.q}
-              q={faq.q}
-              a={faq.a}
-              isOpen={openIndex === i}
-              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
-            />
-          ))}
-        </motion.div>
+    <Section id="faq" tone="muted">
+      <SectionHeader eyebrow="FAQ" title="Common questions." />
+      <div className="mt-10 max-w-3xl mx-auto border-t border-border-soft">
+        {faqs.map((faq, i) => (
+          <FAQItem
+            key={faq.q}
+            q={faq.q}
+            a={faq.a}
+            isOpen={openIndex === i}
+            onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+          />
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }

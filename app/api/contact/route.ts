@@ -53,12 +53,16 @@ export async function POST(request: Request) {
     if (!res.ok) {
       const text = await res.text().catch(() => '');
       console.error('[contact] Lead Engine intake failed:', res.status, text);
+      // Safety net: preserve the lead so it is recoverable from logs if intake
+      // auth/config is wrong (e.g. INTERNAL_API_SECRET out of sync with the app).
+      console.error('[contact] UNDELIVERED LEAD:', JSON.stringify(intakePayload));
       return NextResponse.json({ success: false }, { status: 502 });
     }
 
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error('[contact] Lead Engine intake error:', err);
+    console.error('[contact] UNDELIVERED LEAD:', JSON.stringify(intakePayload));
     return NextResponse.json({ success: false }, { status: 502 });
   }
 }

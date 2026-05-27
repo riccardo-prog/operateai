@@ -1,35 +1,46 @@
-
+const links = [
+  { label: 'Problem', href: '#problem' },
+  { label: 'How it works', href: '#how-it-works' },
+  { label: 'Why different', href: '#why-different' },
+  { label: 'FAQ', href: '#faq' },
+];
 
 export default function Footer() {
   return (
-    <footer className="relative border-t px-6 md:px-8 py-8" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
-      {/* Top glow line */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-        style={{
-          background: 'linear-gradient(90deg, transparent 0%, rgba(56,189,248,0.4) 50%, transparent 100%)',
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="max-w-content mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        {/* Wordmark */}
-        <div className="flex items-center">
-          <span className="font-body text-base font-semibold tracking-tight">
-            <span className="text-text-primary">Operate</span>
-            <span className="text-accent">AI</span>
+    <footer className="border-t border-border-soft bg-bg-canvas">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <a
+          href="#home"
+          className="flex items-center gap-2.5"
+          aria-label="OperateAI Lead Engine, home"
+        >
+          <span className="font-body text-base font-semibold tracking-tight text-ink-primary">
+            OperateAI
           </span>
-        </div>
+          <span className="h-3.5 w-px bg-border-soft" aria-hidden="true" />
+          <span className="font-body text-sm text-ink-secondary">Lead Engine</span>
+        </a>
 
-        {/* Center - copyright */}
-        <div className="flex flex-col items-center gap-1">
-          <span className="font-mono text-[11px] text-text-muted tracking-[0.04em]">
-            &copy; 2026 OperateAI &middot; Based in Ontario, Canada
-          </span>
-        </div>
+        <nav
+          className="flex flex-wrap items-center gap-x-6 gap-y-2"
+          aria-label="Footer"
+        >
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-sm text-ink-secondary hover:text-ink-primary transition-colors"
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
+      </div>
 
-        {/* Right side intentionally empty until /privacy exists */}
-        <div className="w-[88px] hidden sm:block" aria-hidden="true" />
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 pb-10">
+        <p className="text-xs text-ink-tertiary">
+          &copy; 2026 OperateAI &middot; Based in Ontario, Canada
+        </p>
       </div>
     </footer>
   );

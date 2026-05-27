@@ -79,6 +79,17 @@ export default function ChatWidget() {
       .map((p) => p.text)
       .join('');
 
+  // Fallback for a finished assistant turn that produced no text (e.g. it ended
+  // on a tool call): surface the tool's own user-facing message so Ora never
+  // renders an empty bubble.
+  const getToolMessage = (msg: (typeof messages)[number]): string => {
+    for (const part of msg.parts || []) {
+      const output = (part as { output?: { message?: unknown } }).output;
+      if (output && typeof output.message === 'string') return output.message;
+    }
+    return '';
+  };
+
   const showLauncher = !isOpen && !isHidden;
 
   return (
@@ -144,9 +155,15 @@ export default function ChatWidget() {
                   <p className="text-sm leading-relaxed">{GREETING}</p>
                 </div>
               )}
-              {messages.map((msg) => {
+              {messages.map((msg, i) => {
+                const isStreamingThis =
+                  isLoading && i === messages.length - 1 && msg.role === 'assistant';
+                // Prefer the model's text. Only fall back to a tool message once
+                // the turn is done, so the typing indicator covers the gap while
+                // a reply is still streaming in.
                 const text = getMessageText(msg);
-                if (!text) return null;
+                const content = text || (isStreamingThis ? '' : getToolMessage(msg));
+                if (!content) return null;
                 const isUser = msg.role === 'user';
                 return (
                   <div
@@ -157,7 +174,7 @@ export default function ChatWidget() {
                         : 'self-start bg-bg-muted text-ink-primary'
                     }`}
                   >
-                    <p className="text-sm leading-relaxed whitespace-pre-wrap">{text}</p>
+                    <p className="text-sm leading-relaxed whitespace-pre-wrap">{content}</p>
                   </div>
                 );
               })}

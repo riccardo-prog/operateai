@@ -15,15 +15,11 @@ const faqs = [
   },
   {
     q: 'How is this different from my CRM?',
-    a: 'A CRM helps store and organize contacts. Lead Engine focuses on what happens immediately after a lead inquires.',
+    a: 'Your CRM stores and organizes the lead. Lead Engine focuses on the response and follow-up window right after a lead inquires, where opportunities often slip.',
   },
   {
     q: 'How is this different from a chatbot?',
     a: 'Generic chat tools usually answer questions. Lead Engine is built around a realtor-specific response and follow-up workflow that qualifies intent and routes serious opportunities toward handoff or booking.',
-  },
-  {
-    q: 'How is this different from lead generation tools?',
-    a: 'Lead gen tools create more inquiries. Lead Engine helps you respond to and follow up with the inquiries you already receive.',
   },
   {
     q: 'Will this replace me as the realtor?',

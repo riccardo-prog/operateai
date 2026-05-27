@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     siteName: 'OperateAI',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.png?v=2',
         width: 1200,
         height: 630,
-        alt: 'Lead Engine by OperateAI',
+        alt: 'Lead Engine by OperateAI: lead response for realtors',
       },
     ],
     locale: 'en_US',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: 'Lead Engine | Stop losing real estate leads after they inquire',
     description:
       'Lead Engine responds to new leads in seconds, follows up automatically, and helps realtors stop losing opportunities to slow replies, missed messages, and inconsistent follow-up.',
-    images: ['/og-image.png'],
+    images: ['/og-image.png?v=2'],
   },
   robots: {
     index: true,

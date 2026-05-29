@@ -23,23 +23,6 @@ function FunnelIcon() {
     </svg>
   );
 }
-function CalendarIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-      <rect x="4" y="6" width="16" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M4 10h16M8 4v4M16 4v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-function KanbanIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-      <rect x="4" y="5" width="4.5" height="14" rx="1" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="9.75" y="5" width="4.5" height="9" rx="1" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="15.5" y="5" width="4.5" height="12" rx="1" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  );
-}
 function ChartIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
@@ -48,25 +31,27 @@ function ChartIcon() {
     </svg>
   );
 }
-function SlidersIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-      <path d="M4 7h7M15 7h5M4 12h9M17 12h3M4 17h3M11 17h9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="13" cy="7" r="2" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="15" cy="12" r="2" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="9" cy="17" r="2" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  );
-}
-
 const features = [
-  { Icon: BoltIcon, title: 'Instant Lead Response', desc: 'Every new inquiry gets a fast, professional response while their intent is still fresh.' },
-  { Icon: LoopIcon, title: 'Automated Follow-Up', desc: 'When leads go quiet, Lead Engine keeps the conversation alive with natural follow-up.' },
-  { Icon: FunnelIcon, title: 'Lead Qualification', desc: 'The system gathers key details like intent, timeline, location, and readiness.' },
-  { Icon: CalendarIcon, title: 'Booking or Handoff Flow', desc: 'Interested leads are routed toward booking or direct handoff depending on setup.' },
-  { Icon: KanbanIcon, title: 'Pipeline Tracking', desc: 'Leads are organized by status so the agent can see what is happening without digging through messages.' },
-  { Icon: ChartIcon, title: 'Weekly Reporting', desc: 'A simple report showing lead volume, responses, follow-ups, conversations, and booking opportunities.' },
-  { Icon: SlidersIcon, title: 'Ongoing Optimization', desc: 'Reviewed and improved based on real lead behavior.' },
+  {
+    Icon: BoltIcon,
+    title: 'Every buyer and seller gets an instant reply',
+    desc: 'The moment someone inquires from a DM, form, or email, Lead Engine answers. No buyer is left wondering if you saw them.',
+  },
+  {
+    Icon: FunnelIcon,
+    title: 'Qualified leads land on your calendar',
+    desc: 'Lead Engine asks the questions you would ask, references the specific listing they inquired about, and walks buyers and sellers toward a booked time or a direct handoff.',
+  },
+  {
+    Icon: LoopIcon,
+    title: 'Stay top of mind until the timing is right',
+    desc: 'Quiet leads get nurtured for weeks or months until they come back. Post-booking check-ins, no-show recovery, and long-term touches keep clients warm long after the first meeting.',
+  },
+  {
+    Icon: ChartIcon,
+    title: 'One weekly view of what is actually happening',
+    desc: 'A weekly summary of inquiries, replies, conversations, and appointments. Plus a dashboard for when you want to dig in. You see exactly where the money is moving.',
+  },
 ];
 
 export default function WhatItDoes() {
@@ -76,11 +61,12 @@ export default function WhatItDoes() {
         <div className="lg:sticky lg:top-24 self-start">
           <SectionLabel>What It Does</SectionLabel>
           <h2 className="font-body text-3xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-ink-primary">
-            Built to stop leads from slipping through the cracks.
+            Built so no inquiry falls through the cracks.
           </h2>
           <p className="mt-5 text-lg text-ink-secondary leading-relaxed">
-            From the first reply to the weekly report, every inbound lead runs
-            through the same steps, every time.
+            Every buyer and seller goes through the same steps. Replied to.
+            Qualified. Booked or nurtured. Followed up with even after the
+            first meeting.
           </p>
         </div>
 

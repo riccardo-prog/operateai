@@ -53,33 +53,32 @@ const cards = [
   {
     Icon: DatabaseIcon,
     other: 'CRMs organize the database.',
-    ours: 'Lead Engine handles the response and follow-up window.',
+    ours: 'Lead Engine runs the conversation that decides whether the lead becomes a client.',
   },
   {
     Icon: BroadcastIcon,
     other: 'Lead gen tools create more inquiries.',
-    ours: 'Lead Engine helps make sure the inquiries you already paid for do not slip away.',
+    ours: 'Lead Engine makes sure the inquiries you already paid for turn into appointments.',
   },
   {
     Icon: ChatIcon,
     other: 'Generic chat tools answer questions.',
-    ours: 'Lead Engine follows a structured response, qualification, and handoff workflow.',
+    ours: 'Lead Engine runs a real buyer and seller conversation. It qualifies, books, and keeps long-term leads warm.',
   },
   {
     Icon: PhoneIcon,
-    other: 'Some follow-up tools are built around calls.',
-    ours: 'Lead Engine focuses on the channels your lead already used, with fast message-based response, structured follow-up, and handoff when the conversation is ready.',
+    other: 'Some follow-up tools are built around cold calling.',
+    ours: 'Lead Engine works where your lead actually wrote you. DMs, forms, email. It keeps the conversation going until they book or want to talk.',
   },
 ];
 
 export default function WhyDifferent() {
   return (
     <Section id="why-different" tone="muted">
-      <SectionHeader eyebrow="Why Different" title="Built for the gap after the inquiry.">
-        Most tools help you generate leads, store contacts, or manage the
-        broader pipeline. Lead Engine focuses on the window after someone
-        becomes a lead: fast response, structured follow-up, qualification, and
-        handoff before the opportunity goes cold.
+      <SectionHeader eyebrow="Why Different" title="The money leak nobody is fixing.">
+        Most tools help you find leads or store them. They do not handle the
+        window where deals are actually won or lost. That window is right after
+        someone inquires. Lead Engine lives in that window.
       </SectionHeader>
 
       <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">

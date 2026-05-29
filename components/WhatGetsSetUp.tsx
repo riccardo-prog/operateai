@@ -2,14 +2,12 @@ import Section from '@/components/ui/Section';
 import SectionHeader from '@/components/ui/SectionHeader';
 
 const items = [
-  'Lead flow review',
-  'Lead source connection where applicable',
-  'Custom response workflow',
-  'Follow-up sequence',
-  'Qualification logic',
-  'Booking or handoff rules',
-  'Pipeline tracking',
-  'Weekly reporting',
+  'Connect your existing lead channels',
+  'Customize conversations in your voice',
+  'Set qualification, booking, and handoff rules around your process',
+  'Set up long-term nurture for quiet leads',
+  'Configure listing-specific conversation flows',
+  'Weekly summary plus dashboard visibility',
 ];
 
 function Check() {
@@ -30,12 +28,11 @@ export default function WhatGetsSetUp() {
   return (
     <Section id="setup" tone="muted">
       <SectionHeader
-        eyebrow="What Gets Set Up"
-        title="Installed around the way leads already reach you."
+        eyebrow="What We Handle For You"
+        title="We handle the setup. You stay in control."
       >
-        Lead Engine is installed around your current online lead flow, so new
-        inquiries get handled without adding another complicated system to
-        manage.
+        We build Lead Engine around your business. You run it from one
+        dashboard, with everything tuned to how you work.
       </SectionHeader>
 
       <div className="mt-12 max-w-3xl mx-auto rounded-2xl bg-bg-elevated border border-border-soft p-6 md:p-10">

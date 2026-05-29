@@ -3,11 +3,11 @@ import SectionLabel from '@/components/ui/SectionLabel';
 
 // Workflow preview steps for the hero product visual.
 const flowSteps = [
-  { label: 'New lead', meta: 'Just now' },
-  { label: 'Instant response', meta: 'Sent' },
-  { label: 'Follow-up scheduled', meta: 'Queued' },
-  { label: 'Lead qualified', meta: 'Buyer' },
-  { label: 'Booking or handoff ready', meta: 'Ready' },
+  { label: 'New inquiry', meta: 'Just now' },
+  { label: 'Replied', meta: 'Sent' },
+  { label: 'Qualified', meta: 'Buyer' },
+  { label: 'Appointment booked', meta: 'Calendar' },
+  { label: 'Long-term nurture', meta: 'Active' },
 ];
 
 function HeroFlowMock() {
@@ -84,10 +84,10 @@ export default function Hero() {
       {/* Single subtle fade-in on load (the only hero animation). */}
       <div className="animate-fade-up w-full min-w-0 max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className="flex flex-col min-w-0">
-          <SectionLabel>Lead Response for Realtors</SectionLabel>
+          <SectionLabel>Built for Realtors</SectionLabel>
 
           <h1 className="font-body text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] text-ink-primary">
-            Turn more real estate leads into{' '}
+            Turn more buyer and seller inquiries into{' '}
             <span className="relative inline-block">
               booked
               <span
@@ -95,13 +95,14 @@ export default function Hero() {
                 className="absolute left-0 -bottom-1 md:-bottom-1.5 h-[3px] w-full rounded-full bg-gradient-to-r from-accent-from to-accent-to"
               />
             </span>{' '}
-            conversations.
+            appointments.
           </h1>
 
           <p className="mt-6 text-lg md:text-xl text-ink-secondary leading-relaxed max-w-2xl">
-            Lead Engine responds to new leads in seconds, follows up
-            automatically, and helps realtors stop losing opportunities to slow
-            replies, missed messages, and inconsistent follow-up.
+            Built around your voice and your process. Lead Engine responds when
+            buyers and sellers reach out, keeps conversations moving, routes
+            leads based on your rules, and stays in touch until it is time for
+            you to step in.
           </p>
 
           <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
@@ -114,8 +115,8 @@ export default function Hero() {
           </div>
 
           <p className="mt-5 text-sm text-ink-tertiary">
-            For realtors already generating leads through ads, forms, DMs, or
-            inbound inquiries.
+            For realtors and small teams already getting buyer and seller
+            inquiries from ads, listings, DMs, forms, and email.
           </p>
         </div>
 

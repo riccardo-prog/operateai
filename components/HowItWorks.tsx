@@ -72,11 +72,11 @@ function ChartIcon() {
 }
 
 const steps = [
-  { label: 'Lead in', Icon: InboxIcon },
-  { label: 'Instant response', Icon: BoltIcon },
-  { label: 'Qualification', Icon: FunnelIcon },
-  { label: 'Follow-up', Icon: FollowUpIcon },
-  { label: 'Booking or handoff', Icon: CalendarIcon },
+  { label: 'Inquiry arrives', Icon: InboxIcon },
+  { label: 'Instant reply', Icon: BoltIcon },
+  { label: 'Qualified', Icon: FunnelIcon },
+  { label: 'Appointment or handoff', Icon: CalendarIcon },
+  { label: 'Long-term nurture', Icon: FollowUpIcon },
   { label: 'Weekly report', Icon: ChartIcon },
 ];
 
@@ -85,13 +85,12 @@ export default function HowItWorks() {
     <Section id="how-it-works" tone="muted">
       <SectionHeader
         eyebrow="How It Works"
-        title="Speed-to-lead, follow-up, and handoff in one system."
+        title="From inquiry to appointment, without anything slipping."
       >
-        Lead Engine connects to your lead sources, responds while the lead&apos;s
-        intent is still fresh, follows up when they go quiet, qualifies their
-        needs, and routes serious opportunities toward booking with you. AI
-        handles the repetitive first touch and follow-up. You handle the
-        relationship.
+        Lead Engine plugs into the channels where your inquiries already
+        arrive. It replies right away, qualifies the lead, books the
+        appointment, and keeps long-term leads warm in the background. You
+        handle the relationship. The system handles the repetition.
       </SectionHeader>
 
       {/* Desktop: horizontal flow with the sanctioned cyan to purple line */}

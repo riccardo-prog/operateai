@@ -3,14 +3,14 @@ import SectionLabel from '@/components/ui/SectionLabel';
 import Button from '@/components/ui/Button';
 
 const includes = [
-  'Lead flow review',
-  'Custom response and follow-up design',
-  'Lead source connection where applicable',
-  'AI qualification flow',
-  'Booking or handoff logic',
-  'Pipeline tracking',
-  'Weekly reporting',
-  'First 30 days of optimization',
+  'Lead flow audit',
+  'Custom response and nurture design',
+  'Connection to your existing channels',
+  'Qualification and handoff rules around your process',
+  'Booking and handoff logic',
+  'Listing-specific conversation setup',
+  'Weekly performance report',
+  'First 30 days of refinement',
 ];
 
 function Check() {
@@ -34,12 +34,12 @@ export default function FoundingClient() {
       <div className="rounded-3xl border border-border-soft bg-gradient-to-br from-accent-soft-from to-accent-soft-to p-8 md:p-12 lg:p-14">
         <SectionLabel>Founding Clients</SectionLabel>
         <h2 className="font-body text-3xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-ink-primary">
-          Founding client installs are now open.
+          Founding client installs are limited while we work closely with early partners.
         </h2>
         <p className="mt-5 text-lg text-ink-secondary leading-relaxed max-w-2xl">
-          We are currently installing Lead Engine for a small number of real
-          estate professionals at founding client pricing in exchange for
-          feedback and anonymized case study data.
+          We are installing Lead Engine for a small group of real estate
+          professionals at founding client pricing, in exchange for feedback
+          and anonymized results.
         </p>
 
         <p className="mt-9 text-xs font-medium tracking-[0.14em] uppercase text-ink-tertiary">

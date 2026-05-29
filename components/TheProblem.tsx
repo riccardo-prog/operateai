@@ -2,17 +2,17 @@ import Section from '@/components/ui/Section';
 import SectionHeader from '@/components/ui/SectionHeader';
 
 const without = [
-  'Leads sit too long',
-  'Manual follow-up gets missed',
-  'DMs, forms, and emails are scattered',
-  'Agent has to chase every conversation',
+  'Buyers wait for a reply and move on',
+  'Follow-up stops after the first message',
+  'Inquiries get lost between DMs, forms, and email',
+  'You chase every conversation yourself',
 ];
 
 const withEngine = [
-  'Every lead gets a fast first response',
-  'Follow-up happens automatically',
-  'Serious leads are qualified',
-  'Agent steps in when the conversation is ready',
+  'Every buyer and seller gets an instant reply',
+  'No lead goes cold. Nurture keeps running',
+  'Serious leads come pre-qualified',
+  'You step in once they want to book',
 ];
 
 function XMark() {
@@ -42,13 +42,12 @@ export default function TheProblem() {
     <Section id="problem" tone="canvas">
       <SectionHeader
         eyebrow="The Problem"
-        title="Your ads may be working. Your follow-up may be leaking deals."
+        title="Every slow reply is a deal walking out the door."
       >
-        Most agents do not lose leads because the leads are bad. They lose them
-        because the response is too slow, the follow-up is inconsistent, or the
-        lead gets forgotten after the first message. The expensive part is
-        getting the lead. Lead Engine helps make sure that opportunity does not
-        disappear after they click submit.
+        Realtors are not losing deals because the leads are bad. They are losing
+        deals because nobody replied fast enough. The lead got forgotten. The
+        follow-up never happened. You already paid to get them through the
+        door. Lead Engine makes sure they do not walk back out.
       </SectionHeader>
 
       <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">

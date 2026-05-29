@@ -65,10 +65,11 @@ export default function LeadSources() {
       <SectionHeader
         align="left"
         eyebrow="Lead Sources"
-        title="Works with the channels you already use."
+        title="Wherever your buyers and sellers reach you, Lead Engine is there."
       >
-        Lead Engine works around your existing lead flow where possible, so you
-        do not need to rebuild your entire business around another tool.
+        We connect to the channels you already use. No CRM swap. No
+        rebuilding your workflow. Just consistent, fast response in the places
+        leads actually come in.
       </SectionHeader>
 
       <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">

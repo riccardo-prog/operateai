@@ -4,27 +4,6 @@ import Section from '@/components/ui/Section';
 import SectionLabel from '@/components/ui/SectionLabel';
 import Button from '@/components/ui/Button';
 
-const points = [
-  'Answers questions about Lead Engine',
-  'Collects lead flow details',
-  'Guides visitors toward a Lead Flow Audit',
-  'Shows how fast, helpful inbound response can feel',
-];
-
-function Check() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 mt-0.5 shrink-0 text-ink-secondary">
-      <path
-        d="M3.5 8.5l3 3 6-7"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 // Static, non-interactive replica of the floating Ora panel.
 function OraPanelPreview() {
   return (
@@ -102,20 +81,11 @@ export default function OraIntro() {
             Meet Ora, our inbound assistant.
           </h2>
           <p className="mt-5 text-lg text-ink-secondary leading-relaxed max-w-xl">
-            Ora is built into this site to answer questions, collect lead flow
-            details, and help visitors see whether Lead Engine is a fit. A small
-            example of the same principle behind Lead Engine: fast, helpful
-            response before interest goes cold.
+            Ora answers your questions about Lead Engine and learns where your
+            inquiries are slipping today. Same principle your buyers and
+            sellers would get. A fast, helpful response while interest is still
+            warm.
           </p>
-
-          <ul className="mt-8 flex flex-col gap-3">
-            {points.map((p) => (
-              <li key={p} className="flex items-start gap-3">
-                <Check />
-                <span className="text-ink-secondary">{p}</span>
-              </li>
-            ))}
-          </ul>
 
           <div className="mt-8">
             <Button variant="secondary" onClick={openOra}>

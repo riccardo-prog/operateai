@@ -8,14 +8,14 @@ export const metadata: Metadata = {
     icon: '/logo-symbol.png',
     apple: '/logo-symbol.png',
   },
-  title: 'Lead Engine | Stop losing real estate leads after they inquire',
+  title: 'Lead Engine | Turn more real estate inquiries into appointments',
   description:
-    'Lead Engine responds to new leads in seconds, follows up automatically, and helps realtors stop losing opportunities to slow replies, missed messages, and inconsistent follow-up.',
+    'Lead Engine helps realtors convert more buyer and seller inquiries into booked appointments. Instant reply, qualification, booking, and long-term nurture in one system.',
   metadataBase: new URL('https://operateai.ca'),
   openGraph: {
-    title: 'Lead Engine | Stop losing real estate leads after they inquire',
+    title: 'Lead Engine | Turn more real estate inquiries into appointments',
     description:
-      'Lead Engine responds to new leads in seconds, follows up automatically, and helps realtors stop losing opportunities to slow replies, missed messages, and inconsistent follow-up.',
+      'Lead Engine helps realtors convert more buyer and seller inquiries into booked appointments. Instant reply, qualification, booking, and long-term nurture in one system.',
     url: 'https://operateai.ca',
     siteName: 'OperateAI',
     images: [
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lead Engine | Stop losing real estate leads after they inquire',
+    title: 'Lead Engine | Turn more real estate inquiries into appointments',
     description:
-      'Lead Engine responds to new leads in seconds, follows up automatically, and helps realtors stop losing opportunities to slow replies, missed messages, and inconsistent follow-up.',
+      'Lead Engine helps realtors convert more buyer and seller inquiries into booked appointments. Instant reply, qualification, booking, and long-term nurture in one system.',
     images: ['/og-image.png?v=2'],
   },
   robots: {
@@ -70,7 +70,7 @@ export default function RootLayout({
               url: 'https://operateai.ca',
               logo: 'https://operateai.ca/logo-symbol.png',
               description:
-                'OperateAI builds Lead Engine, the AI lead response and follow-up system for realtors.',
+                'OperateAI builds Lead Engine, the system that helps realtors respond to, nurture, and book more inquiries.',
               areaServed: 'CA',
               sameAs: [],
             }),

@@ -7,10 +7,11 @@ export default function FinalCta() {
     <Section id="audit" tone="canvas">
       <SectionHeader
         eyebrow="Get Started"
-        title="Stop letting good leads disappear after they inquire."
+        title="Every delayed response is another chance for the lead to move on."
       >
-        If you are already paying to generate attention, the follow-up system
-        after the inquiry matters just as much as the ad itself.
+        You are already paying to bring in inquiries. The system that handles
+        them after they come in decides whether that money turns into
+        appointments or disappears.
       </SectionHeader>
 
       <div className="mt-12">

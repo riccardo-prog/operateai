@@ -68,6 +68,27 @@ section[id] {
   scroll-margin-top: 80px;
 }
 
+/* ── Mobile nav drawer (Radix Dialog) ────────────────────────
+   Simple slide + fade. Radix drives data-state on both the overlay
+   and panel, so keyframes on open AND closed let it await the exit
+   animation before unmounting. Reduced motion = instant, no slide. */
+@keyframes nav-overlay-in  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes nav-overlay-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes nav-panel-in    { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes nav-panel-out   { from { transform: translateX(0); } to { transform: translateX(100%); } }
+
+.nav-overlay[data-state='open']  { animation: nav-overlay-in 0.2s ease-out; }
+.nav-overlay[data-state='closed'] { animation: nav-overlay-out 0.18s ease-in; }
+.nav-panel[data-state='open']    { animation: nav-panel-in 0.28s cubic-bezier(0.32, 0.72, 0, 1); }
+.nav-panel[data-state='closed']  { animation: nav-panel-out 0.22s ease-in; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-overlay[data-state='open'],
+  .nav-overlay[data-state='closed'],
+  .nav-panel[data-state='open'],
+  .nav-panel[data-state='closed'] { animation: none; }
+}
+
 /* ── Glassmorphism card ──────────────────────────────────── */
 .glass {
   background: rgba(17, 24, 39, 0.5);
@@ -302,6 +323,42 @@ section[id] {
   border-radius: 50%;
   background: #8590A6;
   animation: chat-bounce 1s ease-in-out infinite;
+}
+
+/* ── Hero load choreography ─────────────────────────────────────
+   One orchestrated reveal: copy rises in sequence (hero-rise), then
+   the cards settle into place (hero-card-in). All gated by
+   prefers-reduced-motion so the content is simply present at rest. */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-rise {
+  opacity: 0;
+  animation: hero-rise 0.7s cubic-bezier(0.21, 0.7, 0.25, 1) both;
+}
+
+@keyframes hero-card-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.985); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-card-anim {
+  opacity: 0;
+  animation: hero-card-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Scroll affordance: a single dot travels down a hairline track. */
+@keyframes hero-scroll-cue {
+  0%   { transform: translate(-50%, -2px); opacity: 0; }
+  35%  { opacity: 1; }
+  100% { transform: translate(-50%, 30px); opacity: 0; }
+}
+.hero-scroll-dot { animation: hero-scroll-cue 2.1s cubic-bezier(0.5, 0, 0.5, 1) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-card-anim { animation: none; opacity: 1; transform: none; }
+  .hero-scroll-dot { animation: none; }
 }
 
 /* ── Component keyframe animations ────────────────────── */

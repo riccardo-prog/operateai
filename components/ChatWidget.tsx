@@ -24,7 +24,7 @@ export default function ChatWidget() {
   // Hide the launcher while the audit section (the page's primary CTA) is in
   // view, so the two CTAs do not compete. The open panel stays put.
   useEffect(() => {
-    const auditSection = document.getElementById('audit');
+    const auditSection = document.getElementById('book');
     if (!auditSection) return;
     const observer = new IntersectionObserver(
       ([entry]) => setIsHidden(entry.isIntersecting),
@@ -107,7 +107,8 @@ export default function ChatWidget() {
             aria-label="Ask Ora"
           >
             <span
-              className="h-2 w-2 rounded-full bg-gradient-to-br from-accent-from to-accent-to"
+              className="h-2 w-2 rounded-full"
+              style={{ background: '#1E7F4F' }}
               aria-hidden="true"
             />
             Ask Ora
@@ -129,7 +130,8 @@ export default function ChatWidget() {
             <div className="flex items-center justify-between px-4 py-3 border-b border-border-soft">
               <div className="flex items-center gap-2.5">
                 <span
-                  className="h-2 w-2 rounded-full bg-gradient-to-br from-accent-from to-accent-to"
+                  className="h-2 w-2 rounded-full"
+                  style={{ background: '#1E7F4F' }}
                   aria-hidden="true"
                 />
                 <div className="leading-tight">

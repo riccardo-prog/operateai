@@ -1,8 +1,8 @@
 const links = [
   { label: 'Problem', href: '#problem' },
   { label: 'How it works', href: '#how-it-works' },
-  { label: 'Why different', href: '#why-different' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'See it', href: '#see-it' },
+  { label: 'FAQ', href: '#common-questions' },
 ];
 
 export default function Footer() {

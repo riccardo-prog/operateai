@@ -1,131 +1,171 @@
-import Section from '@/components/ui/Section';
-import SectionHeader from '@/components/ui/SectionHeader';
+import { Fragment } from 'react';
+import type { CSSProperties } from 'react';
 
-function InboxIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-      <path
-        d="M5 13l1.5-7h11L19 13v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M5 13h4l1 2h4l1-2h4"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+/* ───────────────────────────────────────────────────────────────────────────
+   Lead Engine — How It Works
+   The mechanism that answers the three problems raised above (qualifying,
+   surfacing, follow-up). Brand content, not product UI: strictly monochrome,
+   Outfit only, no status color. The routing is described in copy, the only
+   flow visual is a thin monochrome connector from step 01 to 04.
+   ─────────────────────────────────────────────────────────────────────────── */
 
-function BoltIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-      <path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-    </svg>
-  );
-}
+const c = {
+  ink: '#0A0A0A',
+  graphite: '#1A1A1A',
+  slate: '#3D3D3D',
+  steel: '#6B6B6B',
+  ash: '#9C9C9C',
+  mist: '#C9C9C9',
+  fog: '#E4E4E4',
+  paper: '#F5F5F5',
+  white: '#FFFFFF',
+  border: 'rgba(10, 10, 10, 0.08)',
+} as const;
 
-function FunnelIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-      <path d="M4 5h16l-6 7v6l-4 2v-8L4 5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-    </svg>
-  );
-}
+const tabular: CSSProperties = { fontVariantNumeric: 'tabular-nums lining-nums' };
 
-function FollowUpIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-      <path d="M19 5v4h-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M5 19v-4h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path
-        d="M18.5 9A7 7 0 006 7.5M5.5 15A7 7 0 0018 16.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function CalendarIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-      <rect x="4" y="6" width="16" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M4 10h16M8 4v4M16 4v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function ChartIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-      <path d="M5 20V11M10 20V5M15 20v-7M20 20V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M4 20h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
+// Shared micro-label DNA, identical to the rest of the site.
+const micro: CSSProperties = {
+  fontWeight: 500,
+  letterSpacing: '0.08em',
+  textTransform: 'uppercase',
+};
 
 const steps = [
-  { label: 'Inquiry arrives', Icon: InboxIcon },
-  { label: 'Instant reply', Icon: BoltIcon },
-  { label: 'Qualified', Icon: FunnelIcon },
-  { label: 'Appointment or handoff', Icon: CalendarIcon },
-  { label: 'Long-term nurture', Icon: FollowUpIcon },
-  { label: 'Weekly report', Icon: ChartIcon },
-];
+  {
+    n: '01',
+    title: 'Capture every inquiry',
+    desc: 'Connect Meta, Realtor.ca, email, website forms, and DMs once. Every new inquiry lands in one place the moment it arrives.',
+  },
+  {
+    n: '02',
+    title: 'Qualify the lead',
+    desc: 'Lead Engine engages each inquiry and reads its motivation, intent, and qualification, the way a sharp assistant would.',
+  },
+  {
+    n: '03',
+    title: 'Score and route',
+    desc: 'Each lead is scored against your definition of ready. Serious buyers go to booking, the unsure get follow up questions, and the rest move to nurture.',
+  },
+  {
+    n: '04',
+    title: 'Hand off to you',
+    desc: 'You get the full conversation, an AI summary, the score, and a recommended next action. You step in only for the conversations worth having.',
+  },
+] as const;
+
+function ChevronRight() {
+  return (
+    <svg viewBox="0 0 16 16" width="13" height="13" fill="none" aria-hidden="true" style={{ color: c.ash }}>
+      <path d="M6 3.5L10.5 8 6 12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ChevronDown() {
+  return (
+    <svg viewBox="0 0 16 16" width="13" height="13" fill="none" aria-hidden="true" style={{ color: c.ash }}>
+      <path d="M3.5 6L8 10.5 12.5 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/* ── Uniform step card — built once, rendered four times. Identical DNA;
+      only the index number and copy differ. h-full keeps all four equal. ── */
+function StepCard({ n, title, desc }: { n: string; title: string; desc: string }) {
+  return (
+    <div
+      className="flex h-full flex-col bg-white"
+      style={{
+        borderRadius: 16,
+        border: `1px solid ${c.fog}`,
+        boxShadow: '0 4px 12px rgba(10, 10, 10, 0.05)',
+        padding: 24,
+      }}
+    >
+      <span style={{ ...micro, ...tabular, fontSize: 13, color: c.ash }}>{n}</span>
+      <h3 className="mt-4" style={{ fontWeight: 600, fontSize: 17, lineHeight: 1.3, color: c.ink }}>
+        {title}
+      </h3>
+      <p className="mt-2.5" style={{ fontWeight: 400, fontSize: 14, lineHeight: 1.5, color: c.steel }}>
+        {desc}
+      </p>
+    </div>
+  );
+}
 
 export default function HowItWorks() {
   return (
-    <Section id="how-it-works" tone="muted">
-      <SectionHeader
-        eyebrow="How It Works"
-        title="From inquiry to appointment, without anything slipping."
-      >
-        Lead Engine plugs into the channels where your inquiries already
-        arrive. It replies right away, qualifies the lead, books the
-        appointment, and keeps long-term leads warm in the background. You
-        handle the relationship. The system handles the repetition.
-      </SectionHeader>
+    <section id="how-it-works" className="bg-white" style={{ color: c.ink }}>
+      <div className="mx-auto max-w-[1120px] px-6 py-[72px] min-[820px]:py-[104px]">
+        {/* Intro — left aligned, same structure as the Problem section */}
+        <div>
+          <span className="block" style={{ ...micro, fontSize: 11, color: c.ash }}>
+            How it works
+          </span>
+          <h2
+            className="mt-4 max-w-[640px] text-[30px] leading-[1.08] min-[820px]:text-[40px]"
+            style={{ fontWeight: 700, letterSpacing: '-0.02em', color: c.ink }}
+          >
+            Every inquiry qualified and sorted before it reaches you.
+          </h2>
+          <p
+            className="mt-5 max-w-[620px]"
+            style={{ fontWeight: 400, fontSize: 18, lineHeight: 1.6, color: c.steel }}
+          >
+            Connect your lead sources once. From then on, Lead Engine handles every inquiry the same
+            way, every time.
+          </p>
+        </div>
 
-      {/* Desktop: horizontal flow with the sanctioned cyan to purple line */}
-      <div className="hidden lg:block relative mt-16">
-        <div
-          className="absolute top-7 left-[calc(100%/12)] right-[calc(100%/12)] h-px bg-gradient-to-r from-accent-from to-accent-to"
-          aria-hidden="true"
-        />
-        <ol className="grid grid-cols-6">
-          {steps.map(({ label, Icon }) => (
-            <li key={label} className="flex flex-col items-center text-center px-2">
-              <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-bg-elevated border border-border-soft text-ink-secondary">
-                <Icon />
-              </span>
-              <span className="mt-4 text-sm font-medium text-ink-primary">{label}</span>
-            </li>
+        {/* Desktop (>=820px): horizontal flow, thin connector with right chevrons */}
+        <ol className="mt-14 hidden items-stretch min-[820px]:flex" aria-label="How Lead Engine works, steps 1 through 4">
+          {steps.map((s, i) => (
+            <Fragment key={s.n}>
+              <li className="flex-1">
+                <StepCard n={s.n} title={s.title} desc={s.desc} />
+              </li>
+              {i < steps.length - 1 && (
+                <li aria-hidden="true" className="relative flex w-9 shrink-0 items-center justify-center lg:w-12">
+                  <span className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2" style={{ background: c.mist }} />
+                  <span className="relative flex items-center justify-center px-1" style={{ background: c.white }}>
+                    <ChevronRight />
+                  </span>
+                </li>
+              )}
+            </Fragment>
           ))}
         </ol>
-      </div>
 
-      {/* Mobile + tablet: vertical flow (no horizontal scroll) */}
-      <ol className="lg:hidden relative mt-12">
-        <div
-          className="absolute left-7 top-7 bottom-7 w-px bg-gradient-to-b from-accent-from to-accent-to"
-          aria-hidden="true"
-        />
-        {steps.map(({ label, Icon }) => (
-          <li key={label} className="relative flex items-center gap-4 py-3">
-            <span className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-bg-elevated border border-border-soft text-ink-secondary">
-              <Icon />
-            </span>
-            <span className="text-base font-medium text-ink-primary">{label}</span>
-          </li>
-        ))}
-      </ol>
-    </Section>
+        {/* Mobile (<820px): single full-width column, vertical connector on the
+            left with down chevrons. The rail extends into the gap to link cards. */}
+        <ol className="mt-12 flex flex-col gap-5 min-[820px]:hidden">
+          {steps.map((s, i) => {
+            const last = i === steps.length - 1;
+            return (
+              <li key={s.n} className="relative flex gap-4">
+                <div className="relative flex w-4 shrink-0 justify-center" aria-hidden="true">
+                  <span
+                    className="absolute top-1 w-px"
+                    style={{ background: c.mist, bottom: last ? '0.25rem' : '-1.25rem' }}
+                  />
+                  {!last && (
+                    <span
+                      className="absolute left-1/2 flex -translate-x-1/2 items-center justify-center px-0.5"
+                      style={{ background: c.white, bottom: '-1.1rem' }}
+                    >
+                      <ChevronDown />
+                    </span>
+                  )}
+                </div>
+                <div className="flex-1">
+                  <StepCard n={s.n} title={s.title} desc={s.desc} />
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </section>
   );
 }

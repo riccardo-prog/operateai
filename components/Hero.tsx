@@ -18,12 +18,14 @@ const SHADOW = {
   front: '0 18px 50px rgba(10,10,10,0.12)',
 } as const;
 
-// Soft fade on each supporting card's lower edge.
-const EDGE_MASK = 'linear-gradient(to bottom, #000 56%, transparent 100%)';
-
-/* ── Supporting (background) card. Absolutely placed within the cluster on
-   >=641px; hidden entirely on small screens so the hero card stands alone. ── */
-function SupportCard({ top, z, width, delay, shadow, dot, source, title, pill }: {
+/* ── Supporting (background) card. A solid, fully readable plate in a tight,
+   tapered, head-on stack: centered, progressively narrower toward the back,
+   offset straight up so only a complete header row (source + status + title)
+   shows above the card in front, with a crisp edge — never a fade. The shadow
+   ladder carries the depth. Hidden on small screens so the hero card stands
+   alone. ── */
+function SupportCard({ left, top, z, width, delay, shadow, dot, source, pill }: {
+  left: number;
   top: number;
   z: number;
   width: number;
@@ -31,37 +33,29 @@ function SupportCard({ top, z, width, delay, shadow, dot, source, title, pill }:
   shadow: string;
   dot: string;
   source: string;
-  title: string;
   pill: ReactNode;
 }) {
   return (
     <div
-      className="hidden min-[641px]:block min-[641px]:absolute min-[641px]:left-1/2 min-[641px]:-translate-x-1/2"
-      style={{ top, zIndex: z, width }}
+      className="hidden min-[641px]:block min-[641px]:absolute"
+      style={{ left, top, width, zIndex: z }}
     >
       <article
-        className="hero-card-anim w-full bg-white"
+        className="hero-card-anim flex w-full items-center justify-between gap-2 bg-white"
         style={{
           borderRadius: 16,
           border: `1px solid ${c.border}`,
           boxShadow: shadow,
           padding: '14px 16px',
           animationDelay: `${delay}ms`,
-          maskImage: EDGE_MASK,
-          WebkitMaskImage: EDGE_MASK,
         }}
       >
-        {/* Header band: source + status pill, always fully visible in the peek. */}
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex min-w-0 items-center gap-1.5">
-            <span className="inline-block shrink-0 rounded-full" style={{ width: 7, height: 7, background: dot }} aria-hidden="true" />
-            <Micro style={{ color: c.steel }}>{source}</Micro>
-          </div>
-          {pill}
+        {/* One complete, fully readable status row: source + state pill. */}
+        <div className="flex min-w-0 items-center gap-1.5">
+          <span className="inline-block shrink-0 rounded-full" style={{ width: 7, height: 7, background: dot }} aria-hidden="true" />
+          <Micro style={{ color: c.steel }}>{source}</Micro>
         </div>
-        <div className="mt-2 truncate" style={{ fontWeight: 600, fontSize: 14, color: c.ink }}>
-          {title}
-        </div>
+        {pill}
       </article>
     </div>
   );
@@ -70,8 +64,8 @@ function SupportCard({ top, z, width, delay, shadow, dot, source, title, pill }:
 export default function Hero() {
   return (
     <section id="home" className="relative bg-white" style={{ color: c.ink }}>
-      <div className="mx-auto flex max-w-[1280px] flex-col justify-center px-6 py-16 sm:px-8 min-[900px]:min-h-[calc(100dvh-68px)] min-[900px]:py-10">
-        <div className="grid w-full grid-cols-1 items-center gap-12 min-[900px]:grid-cols-[minmax(0,1fr)_400px] min-[900px]:gap-12">
+      <div className="mx-auto flex max-w-[1280px] flex-col justify-center px-6 py-16 sm:px-8 min-[1000px]:min-h-[calc(100dvh-68px)] min-[1000px]:py-10">
+        <div className="grid w-full grid-cols-1 items-center gap-12 min-[1000px]:grid-cols-[minmax(0,1fr)_480px] min-[1000px]:gap-12">
           {/* LEFT — copy */}
           <div className="flex min-w-0 flex-col">
             <div className="hero-rise flex items-center gap-3" style={{ animationDelay: '40ms' }}>
@@ -143,50 +137,50 @@ export default function Hero() {
               supporting cards (new inbound, mid-conversation, long-term nurture).
               On <=640px only the hero card renders. */}
           <div
-            className="relative isolate mx-auto w-full max-w-[400px] min-[641px]:h-[600px] min-[641px]:w-[380px] min-[641px]:max-w-none"
+            className="relative isolate mx-auto w-full max-w-[400px] min-[641px]:h-[610px] min-[641px]:w-[420px] min-[641px]:max-w-none"
             role="img"
-            aria-label="Lead Engine preview: Sarah Mitchell, a qualified buyer lead scored 94 out of 100 and being booked for a showing, sits in front of three incoming leads being handled automatically: a new Meta lead, an Instagram DM mid conversation, and a long-term nurture lead."
+            aria-label="Lead Engine preview: Sarah Mitchell, a qualified buyer lead scored 94 out of 100 and being booked for a showing, sits at the front of a tight stack of incoming leads being handled automatically: a new Meta lead, an Instagram DM mid conversation, and a long-term nurture lead."
           >
-            {/* Back — new inbound (animates first) */}
+            {/* Back plate — new inbound (narrowest, animates first) */}
             <SupportCard
-              top={12}
+              left={66}
+              top={34}
               z={20}
-              width={330}
+              width={288}
               delay={480}
               shadow={SHADOW.back}
               dot={c.green}
               source="Meta lead"
-              title="New buyer inquiry"
               pill={<Pill label="New" tone="green" />}
             />
-            {/* Middle — mid-conversation */}
+            {/* Middle plate — mid-conversation */}
             <SupportCard
-              top={58}
+              left={52}
+              top={76}
               z={30}
-              width={330}
+              width={316}
               delay={550}
-              shadow={SHADOW.back}
+              shadow={SHADOW.mid}
               dot={c.green}
               source="Instagram DM"
-              title="Asked about a listing"
               pill={<Pill label="Responding" tone="green" />}
             />
-            {/* Nearest — long-term nurture (amber), full header visible above hero */}
+            {/* Near plate — long-term nurture (amber), just above the hero */}
             <SupportCard
-              top={104}
+              left={38}
+              top={118}
               z={40}
-              width={330}
+              width={344}
               delay={620}
               shadow={SHADOW.mid}
               dot={c.amber}
               source="Pipeline"
-              title="Long-term nurture"
               pill={<Pill label="Nurture" tone="amber" />}
             />
 
-            {/* Front — Sarah Mitchell (lands last) */}
+            {/* Front — Sarah Mitchell (widest, lands last) */}
             <div
-              className="mx-auto w-full max-w-[400px] min-[641px]:absolute min-[641px]:left-1/2 min-[641px]:top-[150px] min-[641px]:w-[350px] min-[641px]:max-w-none min-[641px]:-translate-x-1/2"
+              className="mx-auto w-full max-w-[400px] min-[641px]:absolute min-[641px]:left-[24px] min-[641px]:top-[160px] min-[641px]:w-[372px] min-[641px]:max-w-none"
               style={{ zIndex: 50 }}
             >
               <LeadCard data-card="sarah" className="hero-card-anim" style={{ animationDelay: '690ms' }} />
@@ -197,7 +191,7 @@ export default function Hero() {
 
       {/* Scroll affordance — a dot travels down a hairline track (desktop). */}
       <div
-        className="pointer-events-none absolute bottom-9 left-6 hidden select-none items-center gap-3 sm:left-8 min-[900px]:flex"
+        className="pointer-events-none absolute bottom-9 left-6 hidden select-none items-center gap-3 sm:left-8 min-[1000px]:flex"
         aria-hidden="true"
       >
         <span style={{ ...micro, fontSize: '9.5px', writingMode: 'vertical-rl' }}>Scroll</span>

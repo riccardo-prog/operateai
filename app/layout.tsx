@@ -5,8 +5,9 @@ import './globals.css';
 
 export const metadata: Metadata = {
   icons: {
-    icon: '/logo-symbol.png',
-    apple: '/logo-symbol.png',
+    icon: '/logomark.svg',
+    shortcut: '/logomark.svg',
+    apple: '/logomark.svg',
   },
   title: 'Lead Engine | Turn more real estate inquiries into appointments',
   description:
@@ -18,14 +19,6 @@ export const metadata: Metadata = {
       'Lead Engine helps realtors convert more buyer and seller inquiries into booked appointments. Instant reply, qualification, booking, and long-term nurture in one system.',
     url: 'https://operateai.ca',
     siteName: 'OperateAI',
-    images: [
-      {
-        url: '/og-image.png?v=2',
-        width: 1200,
-        height: 630,
-        alt: 'Lead Engine by OperateAI: lead response for realtors',
-      },
-    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -34,7 +27,6 @@ export const metadata: Metadata = {
     title: 'Lead Engine | Turn more real estate inquiries into appointments',
     description:
       'Lead Engine helps realtors convert more buyer and seller inquiries into booked appointments. Instant reply, qualification, booking, and long-term nurture in one system.',
-    images: ['/og-image.png?v=2'],
   },
   robots: {
     index: true,

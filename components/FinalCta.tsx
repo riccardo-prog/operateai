@@ -42,7 +42,7 @@ export default function FinalCta() {
           className="mt-5 max-w-[600px]"
           style={{ fontWeight: 400, fontSize: 18, lineHeight: 1.6, color: c.mist }}
         >
-          Book a demo and watch Lead Engine qualify your real inbound. We set it up with you, and you
+          Book a free audit and watch Lead Engine qualify your real inbound. We set it up with you, and you
           see it work before you commit.
         </p>
 
@@ -53,7 +53,7 @@ export default function FinalCta() {
           className="mt-9 inline-flex items-center justify-center rounded-lg transition-transform duration-200 ease-out hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0A]"
           style={{ background: c.white, color: c.ink, fontWeight: 500, fontSize: 15, padding: '14px 28px', borderRadius: 8 }}
         >
-          Book a demo
+          Book a free audit
         </a>
 
         <p className="mt-4" style={{ fontWeight: 400, fontSize: 13, lineHeight: 1.5, color: c.ash }}>

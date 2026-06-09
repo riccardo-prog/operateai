@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react';
+import ScoreCounter from '@/components/ui/ScoreCounter';
 
 /* ───────────────────────────────────────────────────────────────────────────
    Lead Engine — Lead card (Sarah Mitchell)
@@ -94,7 +95,7 @@ export default function LeadCard({ className = '', style, ...rest }: ComponentPr
         borderRadius: 24,
         border: '1px solid rgba(0,0,0,0.08)',
         background: '#FFFFFF',
-        boxShadow: '0 30px 80px rgba(0,0,0,0.14)',
+        boxShadow: '0 18px 50px rgba(10,10,10,0.12)',
         padding: 24,
         ...style,
       }}
@@ -106,7 +107,7 @@ export default function LeadCard({ className = '', style, ...rest }: ComponentPr
         </span>
         <span
           className="inline-flex items-center whitespace-nowrap"
-          style={{ background: '#E7F4EE', color: '#157A4A', borderRadius: 999, fontSize: 12, fontWeight: 600, padding: '6px 12px' }}
+          style={{ background: '#E7F2EC', color: '#1E7F4F', borderRadius: 999, fontSize: 12, fontWeight: 600, padding: '6px 12px' }}
         >
           Qualified
         </span>
@@ -136,14 +137,15 @@ export default function LeadCard({ className = '', style, ...rest }: ComponentPr
         <Micro style={{ fontSize: 11, color: '#8A8A8A', fontWeight: 600 }}>Lead score</Micro>
         <div className="mt-1.5 flex items-end justify-between gap-3">
           <div className="flex items-baseline gap-1">
-            <span style={{ ...tabular, fontWeight: 800, fontSize: 58, lineHeight: 0.92, letterSpacing: '-0.02em', color: c.ink }}>
-              94
-            </span>
+            <ScoreCounter
+              target={94}
+              style={{ ...tabular, fontWeight: 800, fontSize: 58, lineHeight: 0.92, letterSpacing: '-0.02em', color: c.ink }}
+            />
             <span style={{ ...tabular, fontWeight: 500, fontSize: 18, color: c.ash }}>/100</span>
           </div>
           <span
             className="inline-flex items-center whitespace-nowrap"
-            style={{ background: '#EAF5F0', color: '#157A4A', borderRadius: 999, fontSize: 12, fontWeight: 600, padding: '6px 12px' }}
+            style={{ background: '#E7F2EC', color: '#1E7F4F', borderRadius: 999, fontSize: 12, fontWeight: 600, padding: '6px 12px' }}
           >
             High priority
           </span>

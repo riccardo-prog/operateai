@@ -17,18 +17,18 @@ export default function RevealOnScroll({
   once = true,
 }: RevealOnScrollProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once, margin: '-72px 0px' });
+  const isInView = useInView(ref, { once, margin: '0px 0px -15% 0px' });
   const prefersReduced = useReducedMotion();
 
   return (
     <motion.div
       ref={ref}
-      initial={prefersReduced ? {} : { opacity: 0, y: 24 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0, y: 14 }}
+      animate={isInView || prefersReduced ? { opacity: 1, y: 0 } : {}}
       transition={{
-        duration: 0.5,
+        duration: prefersReduced ? 0 : 0.5,
         delay: prefersReduced ? 0 : delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={className}
     >

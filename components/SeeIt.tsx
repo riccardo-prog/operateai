@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react';
 import LeadCard, { c } from '@/components/ui/LeadCard';
+import RevealOnScroll from '@/components/ui/RevealOnScroll';
 
 /* ───────────────────────────────────────────────────────────────────────────
    Lead Engine — See It (transparency & control)
@@ -82,21 +83,22 @@ export default function SeeIt() {
           <div className="min-[820px]:mt-10 min-[820px]:[grid-column:2] min-[820px]:[grid-row:2]">
             <div>
               {points.map((p, i) => (
-                <div
-                  key={p.label}
-                  className="py-5 first:pt-0"
-                  style={i > 0 ? { borderTop: `1px solid ${c.fog}` } : undefined}
-                >
-                  <span className="block" style={{ ...micro, fontSize: 11, color: c.ash }}>
-                    {p.label}
-                  </span>
-                  <h3 className="mt-2" style={{ fontWeight: 600, fontSize: 16, lineHeight: 1.3, color: c.ink }}>
-                    {p.title}
-                  </h3>
-                  <p className="mt-1.5" style={{ fontWeight: 400, fontSize: 14, lineHeight: 1.5, color: c.steel }}>
-                    {p.desc}
-                  </p>
-                </div>
+                <RevealOnScroll key={p.label} delay={i * 0.07}>
+                  <div
+                    className={i === 0 ? 'pb-5' : 'py-5'}
+                    style={i > 0 ? { borderTop: `1px solid ${c.fog}` } : undefined}
+                  >
+                    <span className="block" style={{ ...micro, fontSize: 11, color: c.ash }}>
+                      {p.label}
+                    </span>
+                    <h3 className="mt-2" style={{ fontWeight: 600, fontSize: 16, lineHeight: 1.3, color: c.ink }}>
+                      {p.title}
+                    </h3>
+                    <p className="mt-1.5" style={{ fontWeight: 400, fontSize: 14, lineHeight: 1.5, color: c.steel }}>
+                      {p.desc}
+                    </p>
+                  </div>
+                </RevealOnScroll>
               ))}
             </div>
 

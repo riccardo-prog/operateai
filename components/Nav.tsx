@@ -21,10 +21,10 @@ import * as Dialog from '@radix-ui/react-dialog';
 const links = [
   { label: 'Product', href: '#see-it' },
   { label: 'How it works', href: '#how-it-works' },
-  { label: 'Pricing', href: '#book' },
+  { label: 'FAQ', href: '#common-questions' },
 ];
 
-const CTA_LABEL = 'Book a demo';
+const CTA_LABEL = 'Book a free audit';
 const CTA_HREF = '#book';
 
 export default function Nav() {

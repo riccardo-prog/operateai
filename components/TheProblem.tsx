@@ -1,5 +1,6 @@
 import Section from '@/components/ui/Section';
 import SectionHeader from '@/components/ui/SectionHeader';
+import RevealOnScroll from '@/components/ui/RevealOnScroll';
 
 // Three uniform problem cards. Each label maps 1:1 to what Lead Engine fixes —
 // Qualifying → surfacing → follow-up — so the section reads as a problem the
@@ -9,7 +10,7 @@ const problems = [
     label: 'Qualifying',
     statement: "You can't tell who's serious without working every lead.",
     detail:
-      'Most inbound is low-intent, so you either burn hours sorting tire-kickers by hand — or you guess, and guessing loses the real buyers.',
+      'Most inbound is low-intent, so you either burn hours sorting tire-kickers by hand, or you guess. And guessing loses the real buyers.',
   },
   {
     label: 'Surfacing',
@@ -32,16 +33,17 @@ export default function TheProblem() {
         eyebrow="The real problem"
         title="You paid for these leads. You'll never speak to most of them again."
       >
-        It was never a volume problem. Without a way to qualify every inquiry,
-        surface the serious ones, and keep the rest warm, your best leads get
-        buried and the rest go cold.
+        It was never a volume problem. The leads are there. What you are missing
+        is a way to tell the serious ones apart, reach them while they are warm,
+        and stay in front of the rest. Without it, your best leads get buried and
+        the rest go cold.
       </SectionHeader>
 
       <div className="mt-14 grid grid-cols-1 gap-4 md:mt-16 md:grid-cols-3 md:gap-5">
-        {problems.map((p) => (
+        {problems.map((p, i) => (
+          <RevealOnScroll key={p.label} delay={i * 0.07} className="h-full">
           <article
-            key={p.label}
-            className="flex flex-col rounded-2xl border border-border-soft bg-bg-elevated p-6 md:p-8"
+            className="lp-card flex h-full flex-col rounded-2xl bg-bg-elevated p-6 md:p-8"
           >
             {/* Editorial eyebrow: short ink hairline leads the category label,
                 identical across all three cards to keep them uniform. */}
@@ -58,6 +60,7 @@ export default function TheProblem() {
               {p.detail}
             </p>
           </article>
+          </RevealOnScroll>
         ))}
       </div>
 

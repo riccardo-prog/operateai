@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import type { CSSProperties } from 'react';
+import RevealOnScroll from '@/components/ui/RevealOnScroll';
 
 /* ───────────────────────────────────────────────────────────────────────────
    Lead Engine — How It Works
@@ -40,12 +41,12 @@ const steps = [
   {
     n: '02',
     title: 'Qualify the lead',
-    desc: 'Lead Engine engages each inquiry and reads its motivation, intent, and qualification, the way a sharp assistant would.',
+    desc: 'Lead Engine engages each inquiry and reads its motivation and intent, then qualifies it, the way a sharp assistant would.',
   },
   {
     n: '03',
     title: 'Score and route',
-    desc: 'Each lead is scored against your definition of ready. Serious buyers go to booking, the unsure get follow up questions, and the rest move to nurture.',
+    desc: 'Each lead is scored against your definition of ready. Serious buyers go to booking, the unsure get follow-up questions, and the rest move to nurture.',
   },
   {
     n: '04',
@@ -75,13 +76,8 @@ function ChevronDown() {
 function StepCard({ n, title, desc }: { n: string; title: string; desc: string }) {
   return (
     <div
-      className="flex h-full flex-col bg-white"
-      style={{
-        borderRadius: 16,
-        border: `1px solid ${c.fog}`,
-        boxShadow: '0 4px 12px rgba(10, 10, 10, 0.05)',
-        padding: 24,
-      }}
+      className="lp-card flex h-full flex-col bg-white"
+      style={{ borderRadius: 16, padding: 24 }}
     >
       <span style={{ ...micro, ...tabular, fontSize: 13, color: c.ash }}>{n}</span>
       <h3 className="mt-4" style={{ fontWeight: 600, fontSize: 17, lineHeight: 1.3, color: c.ink }}>
@@ -123,7 +119,9 @@ export default function HowItWorks() {
           {steps.map((s, i) => (
             <Fragment key={s.n}>
               <li className="flex-1">
-                <StepCard n={s.n} title={s.title} desc={s.desc} />
+                <RevealOnScroll delay={i * 0.07} className="h-full">
+                  <StepCard n={s.n} title={s.title} desc={s.desc} />
+                </RevealOnScroll>
               </li>
               {i < steps.length - 1 && (
                 <li aria-hidden="true" className="relative flex w-9 shrink-0 items-center justify-center lg:w-12">
@@ -159,7 +157,9 @@ export default function HowItWorks() {
                   )}
                 </div>
                 <div className="flex-1">
-                  <StepCard n={s.n} title={s.title} desc={s.desc} />
+                  <RevealOnScroll delay={i * 0.07} className="h-full">
+                    <StepCard n={s.n} title={s.title} desc={s.desc} />
+                  </RevealOnScroll>
                 </div>
               </li>
             );

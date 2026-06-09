@@ -2,6 +2,7 @@
 
 import type { CSSProperties, ReactNode } from 'react';
 import { c } from '@/components/ui/LeadCard';
+import RevealOnScroll from '@/components/ui/RevealOnScroll';
 
 /* ───────────────────────────────────────────────────────────────────────────
    Lead Engine — Ora (inbound assistant)
@@ -112,7 +113,7 @@ export default function OraIntro() {
                       <span style={{ fontWeight: 600, fontSize: 15, color: c.ink }}>Ora</span>
                       {/* The one allowed color: a small green live dot. */}
                       <span
-                        className="inline-block rounded-full"
+                        className="live-dot inline-block rounded-full"
                         style={{ width: 7, height: 7, background: c.green }}
                         aria-label="Online"
                         role="img"
@@ -130,15 +131,21 @@ export default function OraIntro() {
 
               {/* Messages */}
               <div className="flex flex-col gap-3 px-4 py-4">
-                <Bubble role="assistant">
-                  Hey, I&rsquo;m Ora. Tell me how leads reach you and I&rsquo;ll show you where they
-                  tend to slip.
-                </Bubble>
-                <Bubble role="user">Mostly Meta lead forms and Instagram DMs.</Bubble>
-                <Bubble role="assistant">
-                  Those go cold fast when the first reply lags. How quickly do they get answered at
-                  9pm on a weekend?
-                </Bubble>
+                <RevealOnScroll delay={0} className="flex flex-col">
+                  <Bubble role="assistant">
+                    Hey, I&rsquo;m Ora. Tell me how leads reach you and I&rsquo;ll show you where they
+                    tend to slip.
+                  </Bubble>
+                </RevealOnScroll>
+                <RevealOnScroll delay={0.07} className="flex flex-col">
+                  <Bubble role="user">Mostly Meta lead forms and Instagram DMs.</Bubble>
+                </RevealOnScroll>
+                <RevealOnScroll delay={0.14} className="flex flex-col">
+                  <Bubble role="assistant">
+                    Those go cold fast when the first reply lags. How quickly do they get answered at
+                    9pm on a weekend?
+                  </Bubble>
+                </RevealOnScroll>
               </div>
 
               {/* Input (decorative; real typing happens in the live widget) */}

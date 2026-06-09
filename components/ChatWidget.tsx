@@ -21,17 +21,42 @@ export default function ChatWidget() {
   const { messages, sendMessage, status } = useChat({ transport });
   const isLoading = status === 'streaming' || status === 'submitted';
 
-  // Hide the launcher while the audit section (the page's primary CTA) is in
-  // view, so the two CTAs do not compete. The open panel stays put.
+  // The launcher fades in only after the visitor scrolls past the hero, and
+  // hides again over the final CTA (the page's primary action) so the two do
+  // not compete. The open panel stays put regardless.
   useEffect(() => {
-    const auditSection = document.getElementById('book');
-    if (!auditSection) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsHidden(entry.isIntersecting),
-      { threshold: 0.4 }
-    );
-    observer.observe(auditSection);
-    return () => observer.disconnect();
+    const hero = document.getElementById('home');
+    const audit = document.getElementById('book');
+    let heroIn = true;
+    let auditIn = false;
+    const update = () => setIsHidden(heroIn || auditIn);
+    const observers: IntersectionObserver[] = [];
+    if (hero) {
+      const o = new IntersectionObserver(
+        ([entry]) => {
+          heroIn = entry.isIntersecting;
+          update();
+        },
+        { threshold: 0.2 }
+      );
+      o.observe(hero);
+      observers.push(o);
+    } else {
+      heroIn = false;
+    }
+    if (audit) {
+      const o = new IntersectionObserver(
+        ([entry]) => {
+          auditIn = entry.isIntersecting;
+          update();
+        },
+        { threshold: 0.4 }
+      );
+      o.observe(audit);
+      observers.push(o);
+    }
+    update();
+    return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   // Auto-scroll to the latest message within the panel's own scroll container.
@@ -103,11 +128,11 @@ export default function ChatWidget() {
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.18 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2.5 rounded-full bg-ink-primary text-white px-5 py-3 text-sm font-medium shadow-[0_8px_32px_rgba(10,10,11,0.12)] hover:opacity-90 transition-opacity cursor-pointer"
+            className="fixed bottom-6 right-6 z-50 inline-flex min-h-[44px] items-center gap-2.5 rounded-lg bg-[#0A0A0A] text-white px-5 py-3 text-sm font-medium shadow-[0_10px_28px_rgba(10,10,10,0.18)] transition-transform duration-150 ease-out hover:scale-[1.03] hover:bg-[#1A1A1A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A0A0A] focus-visible:ring-offset-2 focus-visible:ring-offset-white cursor-pointer"
             aria-label="Ask Ora"
           >
             <span
-              className="h-2 w-2 rounded-full"
+              className="live-dot h-2 w-2 rounded-full"
               style={{ background: '#1E7F4F' }}
               aria-hidden="true"
             />
@@ -130,7 +155,7 @@ export default function ChatWidget() {
             <div className="flex items-center justify-between px-4 py-3 border-b border-border-soft">
               <div className="flex items-center gap-2.5">
                 <span
-                  className="h-2 w-2 rounded-full"
+                  className="live-dot h-2 w-2 rounded-full"
                   style={{ background: '#1E7F4F' }}
                   aria-hidden="true"
                 />
@@ -204,13 +229,13 @@ export default function ChatWidget() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about Lead Engine..."
-                className="flex-1 min-w-0 rounded-full border border-border-soft bg-bg-canvas px-4 py-2 text-sm text-ink-primary placeholder:text-ink-tertiary outline-none focus:border-ink-primary/30"
+                className="flex-1 min-w-0 rounded-lg border border-[#C9C9C9] bg-white px-4 py-2.5 text-sm text-ink-primary placeholder:text-[#9C9C9C] outline-none focus-visible:border-[#3D3D3D] focus-visible:ring-2 focus-visible:ring-[#0A0A0A] focus-visible:ring-offset-1 focus-visible:ring-offset-white"
                 disabled={isLoading}
               />
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink-primary text-white disabled:opacity-40 hover:opacity-90 transition-opacity cursor-pointer"
+                className="shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0A0A0A] text-white transition-transform duration-150 ease-out disabled:opacity-40 hover:enabled:scale-[1.04] hover:enabled:bg-[#1A1A1A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A0A0A] focus-visible:ring-offset-2 focus-visible:ring-offset-white cursor-pointer"
                 aria-label="Send message"
               >
                 <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4">

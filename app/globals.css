@@ -339,12 +339,38 @@ section[id] {
 }
 
 @keyframes hero-card-in {
-  from { opacity: 0; transform: translateY(18px) scale(0.985); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: none; }
 }
 .hero-card-anim {
   opacity: 0;
-  animation: hero-card-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: hero-card-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Live "online" indicator: a slow, low-amplitude opacity pulse. */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+.live-dot { animation: live-pulse 2s ease-in-out infinite; }
+
+/* Content card: understated hover only (border Fog -> Mist, shadow back -> mid).
+   No movement. Base border + back shadow live here so the hover can override
+   them without inline-style specificity fights. */
+.lp-card {
+  border: 1px solid #E4E4E4;
+  box-shadow: 0 4px 12px rgba(10, 10, 10, 0.05);
+  transition: border-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (hover: hover) {
+  .lp-card:hover {
+    border-color: #C9C9C9;
+    box-shadow: 0 10px 28px rgba(10, 10, 10, 0.08);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-card { transition: none; }
 }
 
 /* Scroll affordance: a single dot travels down a hairline track. */
@@ -359,6 +385,7 @@ section[id] {
   .hero-rise,
   .hero-card-anim { animation: none; opacity: 1; transform: none; }
   .hero-scroll-dot { animation: none; }
+  .live-dot { animation: none; }
 }
 
 /* ── Component keyframe animations ────────────────────── */

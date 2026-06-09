@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import RevealOnScroll from '@/components/ui/RevealOnScroll';
 
 /* ───────────────────────────────────────────────────────────────────────────
    Lead Engine — Common Questions
@@ -63,28 +64,24 @@ export default function CommonQuestions() {
             className="mt-5 max-w-[580px]"
             style={{ fontWeight: 400, fontSize: 18, lineHeight: 1.6, color: c.steel }}
           >
-            If something is not covered here, a quick demo will answer it.
+            If something is not covered here, a quick walkthrough will answer it.
           </p>
         </div>
 
         {/* 2x2 grid of uniform question cards (single column under 820px) */}
         <div className="mt-14 grid grid-cols-1 gap-4 min-[820px]:mt-16 min-[820px]:grid-cols-2 min-[820px]:gap-6 min-[820px]:[grid-auto-rows:1fr]">
-          {questions.map(({ q, a }) => (
-            <article
-              key={q}
-              className="flex h-full flex-col bg-white"
-              style={{
-                borderRadius: 16,
-                border: `1px solid ${c.fog}`,
-                boxShadow: '0 4px 12px rgba(10, 10, 10, 0.05)',
-                padding: 26,
-              }}
-            >
-              <h3 style={{ fontWeight: 600, fontSize: 17, lineHeight: 1.3, color: c.ink }}>{q}</h3>
-              <p className="mt-3.5" style={{ fontWeight: 400, fontSize: 15, lineHeight: 1.5, color: c.steel }}>
-                {a}
-              </p>
-            </article>
+          {questions.map(({ q, a }, i) => (
+            <RevealOnScroll key={q} delay={i * 0.07} className="h-full">
+              <article
+                className="lp-card flex h-full flex-col bg-white"
+                style={{ borderRadius: 16, padding: 26 }}
+              >
+                <h3 style={{ fontWeight: 600, fontSize: 17, lineHeight: 1.3, color: c.ink }}>{q}</h3>
+                <p className="mt-3.5" style={{ fontWeight: 400, fontSize: 15, lineHeight: 1.5, color: c.steel }}>
+                  {a}
+                </p>
+              </article>
+            </RevealOnScroll>
           ))}
         </div>
       </div>
